@@ -1,0 +1,149 @@
+<!-- Validation failure messages -->
+
+<% if @experience.errors.any? %>
+  <% @experience.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+
+
+<!-- Responsive panel example -->
+<hr>
+
+<div class="row">
+  <div class="col-sm-offset-1 col-sm-10 col-md-offset-2 col-md-8">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">Add Experience</h3>
+      </div>
+      <div class="panel-body">
+         <form action="/create_restaurant" method="post" class="form-horizontal">
+         <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+            <div class="form-group">
+
+              <div class="col-sm-offset-2 col-sm-8">
+                <input type="text" id="venue_name" name="venue_name" placeholder="New Restaurant" class="form-control" value="<%= @restaurant.venue_name %>">
+              </div>
+
+
+              <div class="form-group">
+                <div class="col-sm-offset-10">
+                  <button class="btn btn-success">
+                    Add
+                  </button>
+                </div>
+              </div>
+
+            </div>
+          </form>
+        <form action="/create_experience" method="post" class="form-horizontal">
+          <!-- Hidden input for authenticity token to protect from forgery -->
+          <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+
+             <!-- Label and input for restaurant_id -->
+          <div class="form-group">
+            <label for="restaurant_id" class="col-sm-2 control-label">
+              Restaurant
+            </label>
+            <div class="col-sm-10">
+              <%= select_tag(:restaurant_id, options_from_collection_for_select(Restaurant.order("venue_name ASC"), :id, :venue_name, @restaurants.last.id), :class => "form-control") %>
+            </div>
+          </div>
+
+          <!-- Label and input for best -->
+          <div class="form-group">
+            <label for="best" class="col-sm-2 control-label">
+              Best
+            </label>
+            <div class="col-sm-10">
+              <input type="text" id="best" name="best" placeholder="What tasted good?" class="form-control" value="<%= @experience.best %>">
+            </div>
+          </div>
+
+          <!-- Label and input for worst -->
+          <div class="form-group">
+            <label for="worst" class="col-sm-2 control-label">
+              Worst
+            </label>
+            <div class="col-sm-10">
+              <input type="text" id="worst" name="worst" placeholder="What wasn't so great?" class="form-control" value="<%= @experience.worst %>">
+            </div>
+          </div>
+
+          <!-- Label and input for date -->
+          <div class="form-group">
+            <label for="date" class="col-sm-2 control-label">
+              Date
+            </label>
+
+            <div class="col-sm-10">
+
+              <input type="text" id="date" name="date" placeholder="YYYY-MM-DD" class="form-control" value="<%= @experience.date %>">
+            </div>
+          </div>
+
+          <!-- Label and input for rating -->
+          <div class="form-group">
+            <label for="rating" class="col-sm-2 control-label">
+              Rating
+            </label>
+
+
+          <div class="col-sm-8">
+          <% (1..10).each do |number| %>
+            <% if number == 5 %>
+              <label class="radio-inline"><input type="radio" name="rating" value="<%= number %>" checked > <%= number %> </label>
+              <% else %>
+            <label class="radio-inline"><input type="radio" name="rating" value="<%= number %>"  > <%= number %> </label>
+            <% end %>
+          <% end %>
+
+
+
+            </div>
+
+          </div>
+
+          <!-- Label and input for comments -->
+          <div class="form-group">
+            <label for="comments" class="col-sm-2 control-label">
+              Comments
+            </label>
+            <div class="col-sm-10">
+              <textarea id="comments" name="comments" placeholder="Comments" class="form-control" rows="3"><%= @experience.comments %></textarea>
+            </div>
+          </div>
+
+          <!-- Label and input for user_id -->
+          <div class="form-group">
+            <div class="col-sm-10">
+              <input name="user_id" type="hidden" value="<%= current_user.id %>">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+              <button class="btn btn-success">
+                Create Experience
+              </button>
+              or
+              <a href="/experiences">Cancel</a>
+            </div>
+          </div>
+        </form>
+
+
+
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+<!-- End responsive panel example -->
