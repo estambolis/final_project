@@ -13,6 +13,8 @@ class ExperiencesController < ApplicationController
   end
 
   def new
+    time = Time.new
+    @time = time.strftime("%Y-%m-%d")
     @experience = Experience.new
     @restaurant = Restaurant.new
     @experiences = Experience.all
