@@ -10,8 +10,6 @@ class RestaurantsController < ApplicationController
     @restaurants = Restaurant.all
     @experiences = Experience.all
 
-
-
   end
 
   def show
@@ -28,6 +26,7 @@ class RestaurantsController < ApplicationController
     @lat = parsed_data_coord["results"][0]["geometry"]["location"]["lat"]
 
     @lng = parsed_data_coord["results"][0]["geometry"]["location"]["lng"]
+
 
   end
 
@@ -49,9 +48,10 @@ class RestaurantsController < ApplicationController
      factual = Factual.new("Kxa1eA6u24jMllpv2EuhQtPse084AWMZ2pnTuNoN","20kMPivt9eJwzt2SLYHNPSWosrtcYkw3jpqG83ng")
 
 
-    if results = factual.table("places-us").search("#{@restaurant.venue_name}").filters("locality" => "chicago").rows != []
+    if results = factual.table("places-us").search("#{@restaurant.venue_name}").filters("$and" => [{"category_ids" => {"$includes" => 338}}, {"locality" => "chicago"}]).rows != []
 
-      results = factual.table("places-us").search("#{@restaurant.venue_name}").filters("locality" => "chicago").rows
+      results = factual.table("places-us").search("#{@restaurant.venue_name}").filters("$and" => [{"category_ids" => {"$includes" => 338}}, {"locality" => "chicago"}]).rows
+
       @restaurant.venue_name = results[0]["name"]
       @restaurant.address = results[0]["address"]
       @restaurant.city = results[0]["locality"]
