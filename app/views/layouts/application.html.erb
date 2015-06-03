@@ -4,12 +4,16 @@
   <meta charset="utf-8">
   <title>Eated</title>
 
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootswatch/3.3.4/flatly/bootstrap.min.css">
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 
     <style>
     #map-canvas {
-      height: 400px;
+      height: 350px;
       margin: 20px;
       padding: 0px
     }
@@ -20,7 +24,7 @@
     function initialize() {
       var myLatlng = new google.maps.LatLng(<%= @lat %>,<%= @lng %>);
       var mapOptions = {
-        zoom: 14,
+        zoom: 15,
         center: myLatlng
       }
       var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
@@ -43,9 +47,7 @@
     }
   </style>
 
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
+
 
   <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 

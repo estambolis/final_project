@@ -1,5 +1,6 @@
 require 'open-uri'
 require 'JSON'
+require 'factual'
 
 class RestaurantsController < ApplicationController
 
@@ -18,16 +19,15 @@ class RestaurantsController < ApplicationController
     @experiences = Experience.all
 
 
-    # @place = "#{@restaurant.venue_name} chicago"
-    # @safe_place = URI.encode(@place)
-    # url_coord = "http://maps.googleapis.com/maps/api/geocode/json?address=#{@safe_place}&"
+    place = "#{@restaurant.address} #{@restaurant.city} #{@restaurant.state}"
+    safe_place = URI.encode(place)
+    url_coord = "http://maps.googleapis.com/maps/api/geocode/json?address=#{safe_place}&"
 
+    parsed_data_coord = JSON.parse(open(url_coord).read)
 
-    # parsed_data_coord = JSON.parse(open(url_coord).read)
+    @lat = parsed_data_coord["results"][0]["geometry"]["location"]["lat"]
 
-    # @lat = parsed_data_coord["results"][0]["geometry"]["location"]["lat"]
-
-    # @lng = parsed_data_coord["results"][0]["geometry"]["location"]["lng"]
+    @lng = parsed_data_coord["results"][0]["geometry"]["location"]["lng"]
 
   end
 
@@ -46,6 +46,28 @@ class RestaurantsController < ApplicationController
     @restaurant.venue_name = venue_name
     @experiences = Experience.all
 
+     factual = Factual.new("Kxa1eA6u24jMllpv2EuhQtPse084AWMZ2pnTuNoN","20kMPivt9eJwzt2SLYHNPSWosrtcYkw3jpqG83ng")
+
+
+    if results = factual.table("places-us").search("#{@restaurant.venue_name}").filters("locality" => "chicago").rows != []
+
+      results = factual.table("places-us").search("#{@restaurant.venue_name}").filters("locality" => "chicago").rows
+      @restaurant.venue_name = results[0]["name"]
+      @restaurant.address = results[0]["address"]
+      @restaurant.city = results[0]["locality"]
+      @restaurant.state = results[0]["region"]
+      @restaurant.food_type = results[0]["category_labels"][0][3]
+
+
+    else
+
+      @restaurant.address = "Unavailable"
+
+    end
+
+
+
+
     if @restaurant.save
       redirect_to "/experiences/new", :notice => "Restaurant created successfully."
     else
@@ -63,6 +85,12 @@ class RestaurantsController < ApplicationController
     @restaurant = Restaurant.find(params[:id])
 
     @restaurant.venue_name = params[:venue_name]
+
+    @restaurant.food_type = params[:food_type]
+
+    @restaurant.address = params[:address]
+
+
 
     if @restaurant.save
       redirect_to "/restaurants", :notice => "Restaurant updated successfully."

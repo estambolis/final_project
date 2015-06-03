@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+gem 'factual-api'
+
 gem 'starter_generators', :git => "http://github.com/rbetina/starter_generators.git", :branch => "simple"
 
 gem 'devise'
