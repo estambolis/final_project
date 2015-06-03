@@ -30934,3 +30934,1009 @@ Processing by RestaurantsController#index as HTML
   Rendered restaurants/index.html.erb within layouts/application (17.6ms)
   [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "experiences" WHERE "experiences"."user_id" = ?[0m  [["user_id", 1]]
 Completed 200 OK in 74ms (Views: 69.2ms | ActiveRecord: 2.8ms)
+
+
+Started GET "/" for ::1 at 2015-06-02 23:30:55 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ExperiencesController#index as HTML
+  [1m[35mUser Load (0.8ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mExperience Load (0.7ms)[0m  [1mSELECT "experiences".* FROM "experiences" WHERE "experiences"."user_id" = ?[0m  [["user_id", 1]]
+  [1m[35mRestaurant Load (11.9ms)[0m  SELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = ? LIMIT 1  [["id", 7]]
+  [1m[36mRestaurant Load (0.2ms)[0m  [1mSELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = ? LIMIT 1[0m  [["id", 6]]
+  [1m[35mRestaurant Load (0.1ms)[0m  SELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = ? LIMIT 1  [["id", 13]]
+  [1m[36mRestaurant Load (0.1ms)[0m  [1mSELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = ? LIMIT 1[0m  [["id", 15]]
+  [1m[35mRestaurant Load (0.1ms)[0m  SELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = ? LIMIT 1  [["id", 38]]
+  Rendered experiences/index.html.erb within layouts/application (62.8ms)
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "experiences" WHERE "experiences"."user_id" = ? AND "experiences"."user_id" = ?[0m  [["user_id", 1], ["user_id", 1]]
+Completed 200 OK in 551ms (Views: 466.1ms | ActiveRecord: 15.8ms)
+
+
+Started GET "/delete_experience/7/7" for ::1 at 2015-06-02 23:31:00 -0500
+Processing by ExperiencesController#destroy as HTML
+  Parameters: {"id"=>"7", "restaurant_id"=>"7"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mRestaurant Load (0.1ms)[0m  [1mSELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = ? LIMIT 1[0m  [["id", 7]]
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "experiences" WHERE "experiences"."restaurant_id" = ?  [["restaurant_id", 7]]
+  [1m[36mExperience Load (0.2ms)[0m  [1mSELECT  "experiences".* FROM "experiences" WHERE "experiences"."id" = ? LIMIT 1[0m  [["id", 7]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (1.7ms)[0m  [1mDELETE FROM "experiences" WHERE "experiences"."id" = ?[0m  [["id", 7]]
+  [1m[35m (1.1ms)[0m  commit transaction
+Redirected to http://localhost:3000/experiences
+Completed 302 Found in 24ms (ActiveRecord: 3.7ms)
+
+
+Started GET "/experiences" for ::1 at 2015-06-02 23:31:00 -0500
+Processing by ExperiencesController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mExperience Load (0.2ms)[0m  SELECT "experiences".* FROM "experiences" WHERE "experiences"."user_id" = ?  [["user_id", 1]]
+  [1m[36mRestaurant Load (0.1ms)[0m  [1mSELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = ? LIMIT 1[0m  [["id", 6]]
+  [1m[35mRestaurant Load (0.1ms)[0m  SELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = ? LIMIT 1  [["id", 13]]
+  [1m[36mRestaurant Load (0.1ms)[0m  [1mSELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = ? LIMIT 1[0m  [["id", 15]]
+  [1m[35mRestaurant Load (0.1ms)[0m  SELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = ? LIMIT 1  [["id", 38]]
+  Rendered experiences/index.html.erb within layouts/application (5.6ms)
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "experiences" WHERE "experiences"."user_id" = ? AND "experiences"."user_id" = ?[0m  [["user_id", 1], ["user_id", 1]]
+Completed 200 OK in 56ms (Views: 52.1ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/delete_experience/9/6" for ::1 at 2015-06-02 23:31:02 -0500
+Processing by ExperiencesController#destroy as HTML
+  Parameters: {"id"=>"9", "restaurant_id"=>"6"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mRestaurant Load (0.1ms)[0m  [1mSELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = ? LIMIT 1[0m  [["id", 6]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "experiences" WHERE "experiences"."restaurant_id" = ?  [["restaurant_id", 6]]
+  [1m[36mExperience Load (0.1ms)[0m  [1mSELECT  "experiences".* FROM "experiences" WHERE "experiences"."id" = ? LIMIT 1[0m  [["id", 9]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mDELETE FROM "experiences" WHERE "experiences"."id" = ?[0m  [["id", 9]]
+  [1m[35m (1.0ms)[0m  commit transaction
+Redirected to http://localhost:3000/experiences
+Completed 302 Found in 8ms (ActiveRecord: 2.0ms)
+
+
+Started GET "/experiences" for ::1 at 2015-06-02 23:31:02 -0500
+Processing by ExperiencesController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mExperience Load (0.2ms)[0m  SELECT "experiences".* FROM "experiences" WHERE "experiences"."user_id" = ?  [["user_id", 1]]
+  [1m[36mRestaurant Load (0.1ms)[0m  [1mSELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = ? LIMIT 1[0m  [["id", 13]]
+  [1m[35mRestaurant Load (0.1ms)[0m  SELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = ? LIMIT 1  [["id", 15]]
+  [1m[36mRestaurant Load (0.1ms)[0m  [1mSELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = ? LIMIT 1[0m  [["id", 38]]
+  Rendered experiences/index.html.erb within layouts/application (4.1ms)
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "experiences" WHERE "experiences"."user_id" = ? AND "experiences"."user_id" = ?  [["user_id", 1], ["user_id", 1]]
+Completed 200 OK in 57ms (Views: 52.2ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/delete_experience/22/13" for ::1 at 2015-06-02 23:31:03 -0500
+Processing by ExperiencesController#destroy as HTML
+  Parameters: {"id"=>"22", "restaurant_id"=>"13"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mRestaurant Load (0.1ms)[0m  SELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = ? LIMIT 1  [["id", 13]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "experiences" WHERE "experiences"."restaurant_id" = ?[0m  [["restaurant_id", 13]]
+  [1m[35mExperience Load (0.1ms)[0m  SELECT  "experiences".* FROM "experiences" WHERE "experiences"."id" = ? LIMIT 1  [["id", 22]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  DELETE FROM "experiences" WHERE "experiences"."id" = ?  [["id", 22]]
+  [1m[36m (1.2ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/experiences
+Completed 302 Found in 9ms (ActiveRecord: 2.3ms)
+
+
+Started GET "/experiences" for ::1 at 2015-06-02 23:31:03 -0500
+Processing by ExperiencesController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mExperience Load (0.2ms)[0m  [1mSELECT "experiences".* FROM "experiences" WHERE "experiences"."user_id" = ?[0m  [["user_id", 1]]
+  [1m[35mRestaurant Load (0.1ms)[0m  SELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = ? LIMIT 1  [["id", 15]]
+  [1m[36mRestaurant Load (0.1ms)[0m  [1mSELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = ? LIMIT 1[0m  [["id", 38]]
+  Rendered experiences/index.html.erb within layouts/application (3.2ms)
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "experiences" WHERE "experiences"."user_id" = ? AND "experiences"."user_id" = ?  [["user_id", 1], ["user_id", 1]]
+Completed 200 OK in 59ms (Views: 55.5ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/delete_experience/31/15" for ::1 at 2015-06-02 23:31:04 -0500
+Processing by ExperiencesController#destroy as HTML
+  Parameters: {"id"=>"31", "restaurant_id"=>"15"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mRestaurant Load (0.1ms)[0m  SELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = ? LIMIT 1  [["id", 15]]
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "experiences" WHERE "experiences"."restaurant_id" = ?[0m  [["restaurant_id", 15]]
+  [1m[35mExperience Load (0.2ms)[0m  SELECT  "experiences".* FROM "experiences" WHERE "experiences"."id" = ? LIMIT 1  [["id", 31]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  DELETE FROM "experiences" WHERE "experiences"."id" = ?  [["id", 31]]
+  [1m[36m (0.9ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/experiences
+Completed 302 Found in 66ms (ActiveRecord: 2.1ms)
+
+
+Started GET "/experiences" for ::1 at 2015-06-02 23:31:05 -0500
+Processing by ExperiencesController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mExperience Load (1.8ms)[0m  [1mSELECT "experiences".* FROM "experiences" WHERE "experiences"."user_id" = ?[0m  [["user_id", 1]]
+  [1m[35mRestaurant Load (0.1ms)[0m  SELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = ? LIMIT 1  [["id", 38]]
+  Rendered experiences/index.html.erb within layouts/application (5.7ms)
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "experiences" WHERE "experiences"."user_id" = ? AND "experiences"."user_id" = ?[0m  [["user_id", 1], ["user_id", 1]]
+Completed 200 OK in 75ms (Views: 66.9ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/delete_experience/44/38" for ::1 at 2015-06-02 23:31:05 -0500
+Processing by ExperiencesController#destroy as HTML
+  Parameters: {"id"=>"44", "restaurant_id"=>"38"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mRestaurant Load (0.1ms)[0m  [1mSELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = ? LIMIT 1[0m  [["id", 38]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "experiences" WHERE "experiences"."restaurant_id" = ?  [["restaurant_id", 38]]
+  [1m[36mExperience Load (0.2ms)[0m  [1mSELECT  "experiences".* FROM "experiences" WHERE "experiences"."id" = ? LIMIT 1[0m  [["id", 44]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mDELETE FROM "experiences" WHERE "experiences"."id" = ?[0m  [["id", 44]]
+  [1m[35m (1.2ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  DELETE FROM "restaurants" WHERE "restaurants"."id" = ?  [["id", 38]]
+  [1m[36m (1.0ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/experiences
+Completed 302 Found in 11ms (ActiveRecord: 3.6ms)
+
+
+Started GET "/experiences" for ::1 at 2015-06-02 23:31:05 -0500
+Processing by ExperiencesController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mExperience Load (0.1ms)[0m  [1mSELECT "experiences".* FROM "experiences" WHERE "experiences"."user_id" = ?[0m  [["user_id", 1]]
+  Rendered experiences/index.html.erb within layouts/application (0.9ms)
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "experiences" WHERE "experiences"."user_id" = ? AND "experiences"."user_id" = ?  [["user_id", 1], ["user_id", 1]]
+Completed 200 OK in 62ms (Views: 58.5ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/restaurants" for ::1 at 2015-06-02 23:31:07 -0500
+Processing by RestaurantsController#index as HTML
+  [1m[36mRestaurant Load (0.3ms)[0m  [1mSELECT "restaurants".* FROM "restaurants"[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36m (0.2ms)[0m  [1mSELECT "experiences"."rating" FROM "experiences" WHERE "experiences"."restaurant_id" = ?[0m  [["restaurant_id", 6]]
+  [1m[35m (0.2ms)[0m  SELECT "experiences"."rating" FROM "experiences" WHERE "experiences"."user_id" = ? AND "experiences"."restaurant_id" = ?  [["user_id", 1], ["restaurant_id", 6]]
+  [1m[36m (0.1ms)[0m  [1mSELECT "experiences"."rating" FROM "experiences" WHERE "experiences"."restaurant_id" = ?[0m  [["restaurant_id", 7]]
+  [1m[35m (0.1ms)[0m  SELECT "experiences"."rating" FROM "experiences" WHERE "experiences"."user_id" = ? AND "experiences"."restaurant_id" = ?  [["user_id", 1], ["restaurant_id", 7]]
+  [1m[36m (0.1ms)[0m  [1mSELECT "experiences"."rating" FROM "experiences" WHERE "experiences"."restaurant_id" = ?[0m  [["restaurant_id", 12]]
+  [1m[35m (0.1ms)[0m  SELECT "experiences"."rating" FROM "experiences" WHERE "experiences"."user_id" = ? AND "experiences"."restaurant_id" = ?  [["user_id", 1], ["restaurant_id", 12]]
+  [1m[36m (0.2ms)[0m  [1mSELECT "experiences"."rating" FROM "experiences" WHERE "experiences"."restaurant_id" = ?[0m  [["restaurant_id", 13]]
+  [1m[35m (0.1ms)[0m  SELECT "experiences"."rating" FROM "experiences" WHERE "experiences"."user_id" = ? AND "experiences"."restaurant_id" = ?  [["user_id", 1], ["restaurant_id", 13]]
+  [1m[36m (0.2ms)[0m  [1mSELECT "experiences"."rating" FROM "experiences" WHERE "experiences"."restaurant_id" = ?[0m  [["restaurant_id", 14]]
+  [1m[35m (0.1ms)[0m  SELECT "experiences"."rating" FROM "experiences" WHERE "experiences"."user_id" = ? AND "experiences"."restaurant_id" = ?  [["user_id", 1], ["restaurant_id", 14]]
+  [1m[36m (0.1ms)[0m  [1mSELECT "experiences"."rating" FROM "experiences" WHERE "experiences"."restaurant_id" = ?[0m  [["restaurant_id", 15]]
+  [1m[35m (0.2ms)[0m  SELECT "experiences"."rating" FROM "experiences" WHERE "experiences"."user_id" = ? AND "experiences"."restaurant_id" = ?  [["user_id", 1], ["restaurant_id", 15]]
+  [1m[36m (0.1ms)[0m  [1mSELECT "experiences"."rating" FROM "experiences" WHERE "experiences"."restaurant_id" = ?[0m  [["restaurant_id", 39]]
+  [1m[35m (0.1ms)[0m  SELECT "experiences"."rating" FROM "experiences" WHERE "experiences"."user_id" = ? AND "experiences"."restaurant_id" = ?  [["user_id", 1], ["restaurant_id", 39]]
+  [1m[36m (0.1ms)[0m  [1mSELECT "experiences"."rating" FROM "experiences" WHERE "experiences"."restaurant_id" = ?[0m  [["restaurant_id", 40]]
+  [1m[35m (0.1ms)[0m  SELECT "experiences"."rating" FROM "experiences" WHERE "experiences"."user_id" = ? AND "experiences"."restaurant_id" = ?  [["user_id", 1], ["restaurant_id", 40]]
+  Rendered restaurants/index.html.erb within layouts/application (37.1ms)
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "experiences" WHERE "experiences"."user_id" = ?[0m  [["user_id", 1]]
+Completed 200 OK in 116ms (Views: 109.6ms | ActiveRecord: 2.9ms)
+
+
+Started DELETE "/users/sign_out" for ::1 at 2015-06-02 23:31:10 -0500
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"q7ef7n3JwWJXIi63p+bMorhiZSn+Fcj8iznl/7SNdhZB+zveZ2ffDpcS+3U3y4vYedL4v6lAO6dkcSxhpnggIA=="}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  commit transaction
+Redirected to http://localhost:3000/
+Completed 302 Found in 42ms (ActiveRecord: 0.5ms)
+
+
+Started GET "/" for ::1 at 2015-06-02 23:31:10 -0500
+Processing by ExperiencesController#index as HTML
+Completed 401 Unauthorized in 15ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for ::1 at 2015-06-02 23:31:10 -0500
+Processing by Devise::SessionsController#new as HTML
+  Rendered /usr/local/rvm/gems/ruby-2.2.1/gems/devise-3.5.1/app/views/devise/shared/_links.html.erb (2.7ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.1/gems/devise-3.5.1/app/views/devise/sessions/new.html.erb within layouts/application (74.2ms)
+Completed 200 OK in 153ms (Views: 147.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for ::1 at 2015-06-02 23:31:23 -0500
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"kWSSvdy24+xMT4r7LQ5DfudQjuLZMGHadpQ3sfdy421nqcyRtl7Q/rhxiDJzgCEDUJD0nzNZtkJcpCsbZfaNYg==", "user"=>{"email"=>"test@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."email" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["email", "test@gmail.com"]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (3.5ms)[0m  [1mUPDATE "users" SET "last_sign_in_at" = ?, "current_sign_in_at" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["last_sign_in_at", "2015-06-02 04:13:13.630127"], ["current_sign_in_at", "2015-06-03 04:31:23.434036"], ["sign_in_count", 11], ["updated_at", "2015-06-03 04:31:23.435583"], ["id", 2]]
+  [1m[35m (1.1ms)[0m  commit transaction
+Redirected to http://localhost:3000/
+Completed 302 Found in 195ms (ActiveRecord: 5.1ms)
+
+
+Started GET "/" for ::1 at 2015-06-02 23:31:23 -0500
+Processing by ExperiencesController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 2]]
+  [1m[35mExperience Load (0.2ms)[0m  SELECT "experiences".* FROM "experiences" WHERE "experiences"."user_id" = ?  [["user_id", 2]]
+  [1m[36mRestaurant Load (0.1ms)[0m  [1mSELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = ? LIMIT 1[0m  [["id", 7]]
+  [1m[35mRestaurant Load (0.1ms)[0m  SELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = ? LIMIT 1  [["id", 12]]
+  [1m[36mRestaurant Load (0.1ms)[0m  [1mSELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = ? LIMIT 1[0m  [["id", 6]]
+  [1m[35mRestaurant Load (0.1ms)[0m  SELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = ? LIMIT 1  [["id", 39]]
+  [1m[36mRestaurant Load (0.1ms)[0m  [1mSELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = ? LIMIT 1[0m  [["id", 40]]
+  Rendered experiences/index.html.erb within layouts/application (5.9ms)
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "experiences" WHERE "experiences"."user_id" = ? AND "experiences"."user_id" = ?  [["user_id", 2], ["user_id", 2]]
+Completed 200 OK in 60ms (Views: 56.3ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/delete_experience/12/7" for ::1 at 2015-06-02 23:31:25 -0500
+Processing by ExperiencesController#destroy as HTML
+  Parameters: {"id"=>"12", "restaurant_id"=>"7"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 2]]
+  [1m[35mRestaurant Load (0.1ms)[0m  SELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = ? LIMIT 1  [["id", 7]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "experiences" WHERE "experiences"."restaurant_id" = ?[0m  [["restaurant_id", 7]]
+  [1m[35mExperience Load (0.1ms)[0m  SELECT  "experiences".* FROM "experiences" WHERE "experiences"."id" = ? LIMIT 1  [["id", 12]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  DELETE FROM "experiences" WHERE "experiences"."id" = ?  [["id", 12]]
+  [1m[36m (1.1ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/experiences
+Completed 302 Found in 9ms (ActiveRecord: 2.1ms)
+
+
+Started GET "/experiences" for ::1 at 2015-06-02 23:31:25 -0500
+Processing by ExperiencesController#index as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 2]]
+  [1m[36mExperience Load (0.2ms)[0m  [1mSELECT "experiences".* FROM "experiences" WHERE "experiences"."user_id" = ?[0m  [["user_id", 2]]
+  [1m[35mRestaurant Load (0.1ms)[0m  SELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = ? LIMIT 1  [["id", 12]]
+  [1m[36mRestaurant Load (0.1ms)[0m  [1mSELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = ? LIMIT 1[0m  [["id", 6]]
+  [1m[35mRestaurant Load (0.1ms)[0m  SELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = ? LIMIT 1  [["id", 39]]
+  [1m[36mRestaurant Load (0.1ms)[0m  [1mSELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = ? LIMIT 1[0m  [["id", 40]]
+  Rendered experiences/index.html.erb within layouts/application (4.6ms)
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "experiences" WHERE "experiences"."user_id" = ? AND "experiences"."user_id" = ?  [["user_id", 2], ["user_id", 2]]
+Completed 200 OK in 55ms (Views: 51.0ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/delete_experience/14/12" for ::1 at 2015-06-02 23:31:25 -0500
+Processing by ExperiencesController#destroy as HTML
+  Parameters: {"id"=>"14", "restaurant_id"=>"12"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 2]]
+  [1m[35mRestaurant Load (0.1ms)[0m  SELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = ? LIMIT 1  [["id", 12]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "experiences" WHERE "experiences"."restaurant_id" = ?[0m  [["restaurant_id", 12]]
+  [1m[35mExperience Load (0.1ms)[0m  SELECT  "experiences".* FROM "experiences" WHERE "experiences"."id" = ? LIMIT 1  [["id", 14]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  DELETE FROM "experiences" WHERE "experiences"."id" = ?  [["id", 14]]
+  [1m[36m (1.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM "restaurants" WHERE "restaurants"."id" = ?[0m  [["id", 12]]
+  [1m[35m (1.2ms)[0m  commit transaction
+Redirected to http://localhost:3000/experiences
+Completed 302 Found in 10ms (ActiveRecord: 3.5ms)
+
+
+Started GET "/experiences" for ::1 at 2015-06-02 23:31:26 -0500
+Processing by ExperiencesController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 2]]
+  [1m[35mExperience Load (0.2ms)[0m  SELECT "experiences".* FROM "experiences" WHERE "experiences"."user_id" = ?  [["user_id", 2]]
+  [1m[36mRestaurant Load (0.1ms)[0m  [1mSELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = ? LIMIT 1[0m  [["id", 6]]
+  [1m[35mRestaurant Load (0.1ms)[0m  SELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = ? LIMIT 1  [["id", 39]]
+  [1m[36mRestaurant Load (0.1ms)[0m  [1mSELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = ? LIMIT 1[0m  [["id", 40]]
+  Rendered experiences/index.html.erb within layouts/application (3.9ms)
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "experiences" WHERE "experiences"."user_id" = ? AND "experiences"."user_id" = ?  [["user_id", 2], ["user_id", 2]]
+Completed 200 OK in 61ms (Views: 57.5ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/delete_experience/18/6" for ::1 at 2015-06-02 23:31:26 -0500
+Processing by ExperiencesController#destroy as HTML
+  Parameters: {"id"=>"18", "restaurant_id"=>"6"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 2]]
+  [1m[35mRestaurant Load (0.1ms)[0m  SELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = ? LIMIT 1  [["id", 6]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "experiences" WHERE "experiences"."restaurant_id" = ?[0m  [["restaurant_id", 6]]
+  [1m[35mExperience Load (0.1ms)[0m  SELECT  "experiences".* FROM "experiences" WHERE "experiences"."id" = ? LIMIT 1  [["id", 18]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  DELETE FROM "experiences" WHERE "experiences"."id" = ?  [["id", 18]]
+  [1m[36m (1.2ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/experiences
+Completed 302 Found in 10ms (ActiveRecord: 2.5ms)
+
+
+Started GET "/experiences" for ::1 at 2015-06-02 23:31:26 -0500
+Processing by ExperiencesController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 2]]
+  [1m[36mExperience Load (0.2ms)[0m  [1mSELECT "experiences".* FROM "experiences" WHERE "experiences"."user_id" = ?[0m  [["user_id", 2]]
+  [1m[35mRestaurant Load (0.1ms)[0m  SELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = ? LIMIT 1  [["id", 39]]
+  [1m[36mRestaurant Load (0.1ms)[0m  [1mSELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = ? LIMIT 1[0m  [["id", 40]]
+  Rendered experiences/index.html.erb within layouts/application (3.4ms)
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "experiences" WHERE "experiences"."user_id" = ? AND "experiences"."user_id" = ?  [["user_id", 2], ["user_id", 2]]
+Completed 200 OK in 55ms (Views: 51.3ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/delete_experience/48/39" for ::1 at 2015-06-02 23:31:27 -0500
+Processing by ExperiencesController#destroy as HTML
+  Parameters: {"id"=>"48", "restaurant_id"=>"39"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 2]]
+  [1m[35mRestaurant Load (0.1ms)[0m  SELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = ? LIMIT 1  [["id", 39]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "experiences" WHERE "experiences"."restaurant_id" = ?[0m  [["restaurant_id", 39]]
+  [1m[35mExperience Load (0.1ms)[0m  SELECT  "experiences".* FROM "experiences" WHERE "experiences"."id" = ? LIMIT 1  [["id", 48]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  DELETE FROM "experiences" WHERE "experiences"."id" = ?  [["id", 48]]
+  [1m[36m (1.3ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mDELETE FROM "restaurants" WHERE "restaurants"."id" = ?[0m  [["id", 39]]
+  [1m[35m (1.1ms)[0m  commit transaction
+Redirected to http://localhost:3000/experiences
+Completed 302 Found in 12ms (ActiveRecord: 3.8ms)
+
+
+Started GET "/experiences" for ::1 at 2015-06-02 23:31:27 -0500
+Processing by ExperiencesController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 2]]
+  [1m[35mExperience Load (0.2ms)[0m  SELECT "experiences".* FROM "experiences" WHERE "experiences"."user_id" = ?  [["user_id", 2]]
+  [1m[36mRestaurant Load (0.2ms)[0m  [1mSELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = ? LIMIT 1[0m  [["id", 40]]
+  Rendered experiences/index.html.erb within layouts/application (2.2ms)
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "experiences" WHERE "experiences"."user_id" = ? AND "experiences"."user_id" = ?  [["user_id", 2], ["user_id", 2]]
+Completed 200 OK in 55ms (Views: 51.1ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/delete_experience/49/40" for ::1 at 2015-06-02 23:31:27 -0500
+Processing by ExperiencesController#destroy as HTML
+  Parameters: {"id"=>"49", "restaurant_id"=>"40"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 2]]
+  [1m[35mRestaurant Load (0.1ms)[0m  SELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = ? LIMIT 1  [["id", 40]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "experiences" WHERE "experiences"."restaurant_id" = ?[0m  [["restaurant_id", 40]]
+  [1m[35mExperience Load (0.1ms)[0m  SELECT  "experiences".* FROM "experiences" WHERE "experiences"."id" = ? LIMIT 1  [["id", 49]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (1.4ms)[0m  DELETE FROM "experiences" WHERE "experiences"."id" = ?  [["id", 49]]
+  [1m[36m (1.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mDELETE FROM "restaurants" WHERE "restaurants"."id" = ?[0m  [["id", 40]]
+  [1m[35m (1.1ms)[0m  commit transaction
+Redirected to http://localhost:3000/experiences
+Completed 302 Found in 12ms (ActiveRecord: 4.7ms)
+
+
+Started GET "/experiences" for ::1 at 2015-06-02 23:31:27 -0500
+Processing by ExperiencesController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 2]]
+  [1m[35mExperience Load (0.2ms)[0m  SELECT "experiences".* FROM "experiences" WHERE "experiences"."user_id" = ?  [["user_id", 2]]
+  Rendered experiences/index.html.erb within layouts/application (1.1ms)
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "experiences" WHERE "experiences"."user_id" = ? AND "experiences"."user_id" = ?[0m  [["user_id", 2], ["user_id", 2]]
+Completed 200 OK in 55ms (Views: 51.8ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/restaurants" for ::1 at 2015-06-02 23:31:30 -0500
+Processing by RestaurantsController#index as HTML
+  [1m[35mRestaurant Load (0.3ms)[0m  SELECT "restaurants".* FROM "restaurants"
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 2]]
+  [1m[35m (0.1ms)[0m  SELECT "experiences"."rating" FROM "experiences" WHERE "experiences"."restaurant_id" = ?  [["restaurant_id", 6]]
+  [1m[36m (0.1ms)[0m  [1mSELECT "experiences"."rating" FROM "experiences" WHERE "experiences"."user_id" = ? AND "experiences"."restaurant_id" = ?[0m  [["user_id", 2], ["restaurant_id", 6]]
+  [1m[35m (0.1ms)[0m  SELECT "experiences"."rating" FROM "experiences" WHERE "experiences"."restaurant_id" = ?  [["restaurant_id", 7]]
+  [1m[36m (0.1ms)[0m  [1mSELECT "experiences"."rating" FROM "experiences" WHERE "experiences"."user_id" = ? AND "experiences"."restaurant_id" = ?[0m  [["user_id", 2], ["restaurant_id", 7]]
+  [1m[35m (0.1ms)[0m  SELECT "experiences"."rating" FROM "experiences" WHERE "experiences"."restaurant_id" = ?  [["restaurant_id", 13]]
+  [1m[36m (0.1ms)[0m  [1mSELECT "experiences"."rating" FROM "experiences" WHERE "experiences"."user_id" = ? AND "experiences"."restaurant_id" = ?[0m  [["user_id", 2], ["restaurant_id", 13]]
+  [1m[35m (0.1ms)[0m  SELECT "experiences"."rating" FROM "experiences" WHERE "experiences"."restaurant_id" = ?  [["restaurant_id", 14]]
+  [1m[36m (0.1ms)[0m  [1mSELECT "experiences"."rating" FROM "experiences" WHERE "experiences"."user_id" = ? AND "experiences"."restaurant_id" = ?[0m  [["user_id", 2], ["restaurant_id", 14]]
+  [1m[35m (0.1ms)[0m  SELECT "experiences"."rating" FROM "experiences" WHERE "experiences"."restaurant_id" = ?  [["restaurant_id", 15]]
+  [1m[36m (0.1ms)[0m  [1mSELECT "experiences"."rating" FROM "experiences" WHERE "experiences"."user_id" = ? AND "experiences"."restaurant_id" = ?[0m  [["user_id", 2], ["restaurant_id", 15]]
+  Rendered restaurants/index.html.erb within layouts/application (10.2ms)
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "experiences" WHERE "experiences"."user_id" = ?  [["user_id", 2]]
+Completed 200 OK in 74ms (Views: 69.8ms | ActiveRecord: 1.8ms)
+
+
+Started DELETE "/users/sign_out" for ::1 at 2015-06-02 23:31:32 -0500
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"kVXIxrwXfWBbG3YiFS3aME0ocRTm4FJhJnMHOtOSrkqG8tLlEtZmTNISgkWtLCMrzZ/Xa9WvS+4gXfSMu6CpKA=="}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 2]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 8ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/" for ::1 at 2015-06-02 23:31:32 -0500
+Processing by ExperiencesController#index as HTML
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for ::1 at 2015-06-02 23:31:32 -0500
+Processing by Devise::SessionsController#new as HTML
+  Rendered /usr/local/rvm/gems/ruby-2.2.1/gems/devise-3.5.1/app/views/devise/shared/_links.html.erb (0.4ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.1/gems/devise-3.5.1/app/views/devise/sessions/new.html.erb within layouts/application (9.7ms)
+Completed 200 OK in 69ms (Views: 65.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for ::1 at 2015-06-02 23:31:42 -0500
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Qu2qbmXm3LXWHYFwcwyrUeaTmOD6gE4Bx17NiHuT2OiROJoVssJvFO99AXEddqNtSq0P72wOcPW8eVkvBVz5SQ==", "user"=>{"email"=>"dimitri@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."email" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["email", "dimitri@gmail.com"]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  UPDATE "users" SET "last_sign_in_at" = ?, "current_sign_in_at" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?  [["last_sign_in_at", "2015-06-01 16:32:01.306383"], ["current_sign_in_at", "2015-06-03 04:31:43.025566"], ["sign_in_count", 3], ["updated_at", "2015-06-03 04:31:43.026942"], ["id", 4]]
+  [1m[36m (2.7ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 159ms (ActiveRecord: 3.3ms)
+
+
+Started GET "/" for ::1 at 2015-06-02 23:31:43 -0500
+Processing by ExperiencesController#index as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 4]]
+  [1m[36mExperience Load (0.2ms)[0m  [1mSELECT "experiences".* FROM "experiences" WHERE "experiences"."user_id" = ?[0m  [["user_id", 4]]
+  [1m[35mRestaurant Load (0.2ms)[0m  SELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = ? LIMIT 1  [["id", 15]]
+  [1m[36mRestaurant Load (0.1ms)[0m  [1mSELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = ? LIMIT 1[0m  [["id", 7]]
+  Rendered experiences/index.html.erb within layouts/application (3.3ms)
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "experiences" WHERE "experiences"."user_id" = ? AND "experiences"."user_id" = ?  [["user_id", 4], ["user_id", 4]]
+Completed 200 OK in 55ms (Views: 51.7ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/delete_experience/23/15" for ::1 at 2015-06-02 23:31:44 -0500
+Processing by ExperiencesController#destroy as HTML
+  Parameters: {"id"=>"23", "restaurant_id"=>"15"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 4]]
+  [1m[35mRestaurant Load (0.1ms)[0m  SELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = ? LIMIT 1  [["id", 15]]
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "experiences" WHERE "experiences"."restaurant_id" = ?[0m  [["restaurant_id", 15]]
+  [1m[35mExperience Load (0.1ms)[0m  SELECT  "experiences".* FROM "experiences" WHERE "experiences"."id" = ? LIMIT 1  [["id", 23]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  DELETE FROM "experiences" WHERE "experiences"."id" = ?  [["id", 23]]
+  [1m[36m (1.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM "restaurants" WHERE "restaurants"."id" = ?[0m  [["id", 15]]
+  [1m[35m (1.1ms)[0m  commit transaction
+Redirected to http://localhost:3000/experiences
+Completed 302 Found in 10ms (ActiveRecord: 3.5ms)
+
+
+Started GET "/experiences" for ::1 at 2015-06-02 23:31:44 -0500
+Processing by ExperiencesController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 4]]
+  [1m[35mExperience Load (0.2ms)[0m  SELECT "experiences".* FROM "experiences" WHERE "experiences"."user_id" = ?  [["user_id", 4]]
+  [1m[36mRestaurant Load (0.2ms)[0m  [1mSELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = ? LIMIT 1[0m  [["id", 7]]
+  Rendered experiences/index.html.erb within layouts/application (2.8ms)
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "experiences" WHERE "experiences"."user_id" = ? AND "experiences"."user_id" = ?  [["user_id", 4], ["user_id", 4]]
+Completed 200 OK in 55ms (Views: 52.0ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/delete_experience/24/7" for ::1 at 2015-06-02 23:31:45 -0500
+Processing by ExperiencesController#destroy as HTML
+  Parameters: {"id"=>"24", "restaurant_id"=>"7"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 4]]
+  [1m[35mRestaurant Load (0.2ms)[0m  SELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = ? LIMIT 1  [["id", 7]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "experiences" WHERE "experiences"."restaurant_id" = ?[0m  [["restaurant_id", 7]]
+  [1m[35mExperience Load (0.1ms)[0m  SELECT  "experiences".* FROM "experiences" WHERE "experiences"."id" = ? LIMIT 1  [["id", 24]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  DELETE FROM "experiences" WHERE "experiences"."id" = ?  [["id", 24]]
+  [1m[36m (1.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM "restaurants" WHERE "restaurants"."id" = ?[0m  [["id", 7]]
+  [1m[35m (1.1ms)[0m  commit transaction
+Redirected to http://localhost:3000/experiences
+Completed 302 Found in 11ms (ActiveRecord: 3.6ms)
+
+
+Started GET "/experiences" for ::1 at 2015-06-02 23:31:45 -0500
+Processing by ExperiencesController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 4]]
+  [1m[35mExperience Load (0.1ms)[0m  SELECT "experiences".* FROM "experiences" WHERE "experiences"."user_id" = ?  [["user_id", 4]]
+  Rendered experiences/index.html.erb within layouts/application (0.7ms)
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "experiences" WHERE "experiences"."user_id" = ? AND "experiences"."user_id" = ?[0m  [["user_id", 4], ["user_id", 4]]
+Completed 200 OK in 53ms (Views: 49.7ms | ActiveRecord: 0.6ms)
+
+
+Started DELETE "/users/sign_out" for ::1 at 2015-06-02 23:31:48 -0500
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"jQa9+JGghUbIjDRNtTW1ouWGVngW7EKPRmJ2JojWSspi7SIMUJGmqpXLMSDja+bkIeF6kOpRLHFZ8396Nx3yFg=="}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 4]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  commit transaction
+Redirected to http://localhost:3000/
+Completed 302 Found in 8ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/" for ::1 at 2015-06-02 23:31:48 -0500
+Processing by ExperiencesController#index as HTML
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for ::1 at 2015-06-02 23:31:48 -0500
+Processing by Devise::SessionsController#new as HTML
+  Rendered /usr/local/rvm/gems/ruby-2.2.1/gems/devise-3.5.1/app/views/devise/shared/_links.html.erb (0.5ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.1/gems/devise-3.5.1/app/views/devise/sessions/new.html.erb within layouts/application (9.9ms)
+Completed 200 OK in 69ms (Views: 67.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for ::1 at 2015-06-02 23:31:57 -0500
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"3kWMLgIWc05CfIVY+CNjWAJNkRj4hiE8k8PxdZbHCafUpIxNOUrQjo/HPeWjE2a04VBkbj7aQmc39h5KnqRJlQ==", "user"=>{"email"=>"molly@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."email" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["email", "molly@gmail.com"]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mUPDATE "users" SET "last_sign_in_at" = ?, "current_sign_in_at" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["last_sign_in_at", "2015-05-31 18:28:07.875630"], ["current_sign_in_at", "2015-06-03 04:31:57.145880"], ["sign_in_count", 3], ["updated_at", "2015-06-03 04:31:57.149057"], ["id", 3]]
+  [1m[35m (2.7ms)[0m  commit transaction
+Redirected to http://localhost:3000/
+Completed 302 Found in 166ms (ActiveRecord: 3.4ms)
+
+
+Started GET "/" for ::1 at 2015-06-02 23:31:57 -0500
+Processing by ExperiencesController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 3]]
+  [1m[35mExperience Load (0.2ms)[0m  SELECT "experiences".* FROM "experiences" WHERE "experiences"."user_id" = ?  [["user_id", 3]]
+  [1m[36mRestaurant Load (0.1ms)[0m  [1mSELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = ? LIMIT 1[0m  [["id", 13]]
+  [1m[35mRestaurant Load (0.1ms)[0m  SELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = ? LIMIT 1  [["id", 6]]
+  [1m[36mRestaurant Load (0.1ms)[0m  [1mSELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = ? LIMIT 1[0m  [["id", 14]]
+  Rendered experiences/index.html.erb within layouts/application (3.5ms)
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "experiences" WHERE "experiences"."user_id" = ? AND "experiences"."user_id" = ?  [["user_id", 3], ["user_id", 3]]
+Completed 200 OK in 51ms (Views: 47.9ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/restaurants" for ::1 at 2015-06-02 23:31:59 -0500
+Processing by RestaurantsController#index as HTML
+  [1m[36mRestaurant Load (0.2ms)[0m  [1mSELECT "restaurants".* FROM "restaurants"[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 3]]
+  [1m[36m (0.1ms)[0m  [1mSELECT "experiences"."rating" FROM "experiences" WHERE "experiences"."restaurant_id" = ?[0m  [["restaurant_id", 6]]
+  [1m[35m (0.1ms)[0m  SELECT "experiences"."rating" FROM "experiences" WHERE "experiences"."user_id" = ? AND "experiences"."restaurant_id" = ?  [["user_id", 3], ["restaurant_id", 6]]
+  [1m[36m (0.1ms)[0m  [1mSELECT "experiences"."rating" FROM "experiences" WHERE "experiences"."restaurant_id" = ?[0m  [["restaurant_id", 13]]
+  [1m[35m (0.1ms)[0m  SELECT "experiences"."rating" FROM "experiences" WHERE "experiences"."user_id" = ? AND "experiences"."restaurant_id" = ?  [["user_id", 3], ["restaurant_id", 13]]
+  [1m[36m (0.1ms)[0m  [1mSELECT "experiences"."rating" FROM "experiences" WHERE "experiences"."restaurant_id" = ?[0m  [["restaurant_id", 14]]
+  [1m[35m (0.1ms)[0m  SELECT "experiences"."rating" FROM "experiences" WHERE "experiences"."user_id" = ? AND "experiences"."restaurant_id" = ?  [["user_id", 3], ["restaurant_id", 14]]
+  Rendered restaurants/index.html.erb within layouts/application (6.0ms)
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "experiences" WHERE "experiences"."user_id" = ?[0m  [["user_id", 3]]
+Completed 200 OK in 67ms (Views: 64.3ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/experiences" for ::1 at 2015-06-02 23:32:01 -0500
+Processing by ExperiencesController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 3]]
+  [1m[36mExperience Load (0.2ms)[0m  [1mSELECT "experiences".* FROM "experiences" WHERE "experiences"."user_id" = ?[0m  [["user_id", 3]]
+  [1m[35mRestaurant Load (0.1ms)[0m  SELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = ? LIMIT 1  [["id", 13]]
+  [1m[36mRestaurant Load (0.1ms)[0m  [1mSELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = ? LIMIT 1[0m  [["id", 6]]
+  [1m[35mRestaurant Load (0.1ms)[0m  SELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = ? LIMIT 1  [["id", 14]]
+  Rendered experiences/index.html.erb within layouts/application (3.4ms)
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "experiences" WHERE "experiences"."user_id" = ? AND "experiences"."user_id" = ?[0m  [["user_id", 3], ["user_id", 3]]
+Completed 200 OK in 64ms (Views: 60.3ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/delete_experience/19/13" for ::1 at 2015-06-02 23:32:02 -0500
+Processing by ExperiencesController#destroy as HTML
+  Parameters: {"id"=>"19", "restaurant_id"=>"13"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 3]]
+  [1m[36mRestaurant Load (0.1ms)[0m  [1mSELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = ? LIMIT 1[0m  [["id", 13]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "experiences" WHERE "experiences"."restaurant_id" = ?  [["restaurant_id", 13]]
+  [1m[36mExperience Load (0.1ms)[0m  [1mSELECT  "experiences".* FROM "experiences" WHERE "experiences"."id" = ? LIMIT 1[0m  [["id", 19]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mDELETE FROM "experiences" WHERE "experiences"."id" = ?[0m  [["id", 19]]
+  [1m[35m (1.1ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  DELETE FROM "restaurants" WHERE "restaurants"."id" = ?  [["id", 13]]
+  [1m[36m (1.1ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/experiences
+Completed 302 Found in 11ms (ActiveRecord: 3.5ms)
+
+
+Started GET "/experiences" for ::1 at 2015-06-02 23:32:02 -0500
+Processing by ExperiencesController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 3]]
+  [1m[36mExperience Load (0.2ms)[0m  [1mSELECT "experiences".* FROM "experiences" WHERE "experiences"."user_id" = ?[0m  [["user_id", 3]]
+  [1m[35mRestaurant Load (0.1ms)[0m  SELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = ? LIMIT 1  [["id", 6]]
+  [1m[36mRestaurant Load (0.1ms)[0m  [1mSELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = ? LIMIT 1[0m  [["id", 14]]
+  Rendered experiences/index.html.erb within layouts/application (3.4ms)
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "experiences" WHERE "experiences"."user_id" = ? AND "experiences"."user_id" = ?  [["user_id", 3], ["user_id", 3]]
+Completed 200 OK in 56ms (Views: 52.1ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/delete_experience/20/6" for ::1 at 2015-06-02 23:32:04 -0500
+Processing by ExperiencesController#destroy as HTML
+  Parameters: {"id"=>"20", "restaurant_id"=>"6"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 3]]
+  [1m[35mRestaurant Load (0.2ms)[0m  SELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = ? LIMIT 1  [["id", 6]]
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "experiences" WHERE "experiences"."restaurant_id" = ?[0m  [["restaurant_id", 6]]
+  [1m[35mExperience Load (0.1ms)[0m  SELECT  "experiences".* FROM "experiences" WHERE "experiences"."id" = ? LIMIT 1  [["id", 20]]
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  DELETE FROM "experiences" WHERE "experiences"."id" = ?  [["id", 20]]
+  [1m[36m (2.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mDELETE FROM "restaurants" WHERE "restaurants"."id" = ?[0m  [["id", 6]]
+  [1m[35m (1.1ms)[0m  commit transaction
+Redirected to http://localhost:3000/experiences
+Completed 302 Found in 13ms (ActiveRecord: 5.2ms)
+
+
+Started GET "/experiences" for ::1 at 2015-06-02 23:32:04 -0500
+Processing by ExperiencesController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 3]]
+  [1m[35mExperience Load (0.2ms)[0m  SELECT "experiences".* FROM "experiences" WHERE "experiences"."user_id" = ?  [["user_id", 3]]
+  [1m[36mRestaurant Load (0.1ms)[0m  [1mSELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = ? LIMIT 1[0m  [["id", 14]]
+  Rendered experiences/index.html.erb within layouts/application (2.1ms)
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "experiences" WHERE "experiences"."user_id" = ? AND "experiences"."user_id" = ?  [["user_id", 3], ["user_id", 3]]
+Completed 200 OK in 58ms (Views: 54.7ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/delete_experience/21/14" for ::1 at 2015-06-02 23:32:06 -0500
+Processing by ExperiencesController#destroy as HTML
+  Parameters: {"id"=>"21", "restaurant_id"=>"14"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 3]]
+  [1m[35mRestaurant Load (0.1ms)[0m  SELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = ? LIMIT 1  [["id", 14]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "experiences" WHERE "experiences"."restaurant_id" = ?[0m  [["restaurant_id", 14]]
+  [1m[35mExperience Load (0.1ms)[0m  SELECT  "experiences".* FROM "experiences" WHERE "experiences"."id" = ? LIMIT 1  [["id", 21]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  DELETE FROM "experiences" WHERE "experiences"."id" = ?  [["id", 21]]
+  [1m[36m (1.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mDELETE FROM "restaurants" WHERE "restaurants"."id" = ?[0m  [["id", 14]]
+  [1m[35m (1.1ms)[0m  commit transaction
+Redirected to http://localhost:3000/experiences
+Completed 302 Found in 12ms (ActiveRecord: 3.8ms)
+
+
+Started GET "/experiences" for ::1 at 2015-06-02 23:32:07 -0500
+Processing by ExperiencesController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 3]]
+  [1m[35mExperience Load (0.1ms)[0m  SELECT "experiences".* FROM "experiences" WHERE "experiences"."user_id" = ?  [["user_id", 3]]
+  Rendered experiences/index.html.erb within layouts/application (0.7ms)
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "experiences" WHERE "experiences"."user_id" = ? AND "experiences"."user_id" = ?[0m  [["user_id", 3], ["user_id", 3]]
+Completed 200 OK in 48ms (Views: 45.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/restaurants" for ::1 at 2015-06-02 23:32:08 -0500
+Processing by RestaurantsController#index as HTML
+  [1m[35mRestaurant Load (0.3ms)[0m  SELECT "restaurants".* FROM "restaurants"
+  Rendered restaurants/index.html.erb within layouts/application (0.8ms)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 3]]
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "experiences" WHERE "experiences"."user_id" = ?  [["user_id", 3]]
+Completed 200 OK in 55ms (Views: 53.2ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/experiences" for ::1 at 2015-06-02 23:32:09 -0500
+Processing by ExperiencesController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 3]]
+  [1m[35mExperience Load (0.1ms)[0m  SELECT "experiences".* FROM "experiences" WHERE "experiences"."user_id" = ?  [["user_id", 3]]
+  Rendered experiences/index.html.erb within layouts/application (0.7ms)
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "experiences" WHERE "experiences"."user_id" = ? AND "experiences"."user_id" = ?[0m  [["user_id", 3], ["user_id", 3]]
+Completed 200 OK in 62ms (Views: 58.1ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/experiences/new" for ::1 at 2015-06-02 23:32:12 -0500
+Processing by ExperiencesController#new as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 3]]
+  [1m[36mRestaurant Load (0.4ms)[0m  [1mSELECT  "restaurants".* FROM "restaurants"  ORDER BY "restaurants"."id" DESC LIMIT 1[0m
+  Rendered experiences/new.html.erb within layouts/application (8.9ms)
+Completed 500 Internal Server Error in 25ms (ActiveRecord: 0.6ms)
+
+ActionView::Template::Error (undefined method `id' for nil:NilClass):
+    51:               Restaurant
+    52:             </label>
+    53:             <div class="col-sm-10">
+    54:               <%= select_tag(:restaurant_id, options_from_collection_for_select(Restaurant.order("venue_name ASC"), :id, :venue_name, @restaurants.last.id), :class => "form-control") %>
+    55:             </div>
+    56:           </div>
+    57: 
+  app/views/experiences/new.html.erb:54:in `_app_views_experiences_new_html_erb___80772801538932781_70099052186180'
+
+
+  Rendered /usr/local/rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (17.9ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (5.7ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.6ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (152.0ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (0.5ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.5ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (124.5ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (0.5ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.6ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (282.9ms)
+
+
+Started GET "/experiences/new" for ::1 at 2015-06-02 23:32:13 -0500
+Processing by ExperiencesController#new as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 3]]
+  [1m[36mRestaurant Load (0.2ms)[0m  [1mSELECT  "restaurants".* FROM "restaurants"  ORDER BY "restaurants"."id" DESC LIMIT 1[0m
+  Rendered experiences/new.html.erb within layouts/application (7.2ms)
+Completed 500 Internal Server Error in 21ms (ActiveRecord: 0.4ms)
+
+ActionView::Template::Error (undefined method `id' for nil:NilClass):
+    51:               Restaurant
+    52:             </label>
+    53:             <div class="col-sm-10">
+    54:               <%= select_tag(:restaurant_id, options_from_collection_for_select(Restaurant.order("venue_name ASC"), :id, :venue_name, @restaurants.last.id), :class => "form-control") %>
+    55:             </div>
+    56:           </div>
+    57: 
+  app/views/experiences/new.html.erb:54:in `_app_views_experiences_new_html_erb___80772801538932781_70099036506480'
+
+
+  Rendered /usr/local/rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (16.1ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (7.1ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.8ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (147.8ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (1.0ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.5ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (112.3ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (1.0ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.5ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (256.4ms)
+
+
+Started GET "/experiences" for ::1 at 2015-06-02 23:32:19 -0500
+Processing by ExperiencesController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 3]]
+  [1m[36mExperience Load (0.1ms)[0m  [1mSELECT "experiences".* FROM "experiences" WHERE "experiences"."user_id" = ?[0m  [["user_id", 3]]
+  Rendered experiences/index.html.erb within layouts/application (0.9ms)
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "experiences" WHERE "experiences"."user_id" = ? AND "experiences"."user_id" = ?  [["user_id", 3], ["user_id", 3]]
+Completed 200 OK in 98ms (Views: 94.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/experiences/new" for ::1 at 2015-06-02 23:33:56 -0500
+Processing by ExperiencesController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 3]]
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "restaurants"
+  Rendered experiences/new.html.erb within layouts/application (3.6ms)
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "experiences" WHERE "experiences"."user_id" = ?[0m  [["user_id", 3]]
+Completed 200 OK in 53ms (Views: 49.6ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/experiences" for ::1 at 2015-06-02 23:34:05 -0500
+Processing by ExperiencesController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 3]]
+  [1m[36mExperience Load (0.1ms)[0m  [1mSELECT "experiences".* FROM "experiences" WHERE "experiences"."user_id" = ?[0m  [["user_id", 3]]
+  Rendered experiences/index.html.erb within layouts/application (0.7ms)
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "experiences" WHERE "experiences"."user_id" = ? AND "experiences"."user_id" = ?  [["user_id", 3], ["user_id", 3]]
+Completed 200 OK in 50ms (Views: 47.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/restaurants" for ::1 at 2015-06-02 23:34:07 -0500
+Processing by RestaurantsController#index as HTML
+  [1m[36mRestaurant Load (0.2ms)[0m  [1mSELECT "restaurants".* FROM "restaurants"[0m
+  Rendered restaurants/index.html.erb within layouts/application (0.8ms)
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 3]]
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "experiences" WHERE "experiences"."user_id" = ?[0m  [["user_id", 3]]
+Completed 200 OK in 57ms (Views: 55.4ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/experiences" for ::1 at 2015-06-02 23:34:07 -0500
+Processing by ExperiencesController#index as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 3]]
+  [1m[36mExperience Load (0.1ms)[0m  [1mSELECT "experiences".* FROM "experiences" WHERE "experiences"."user_id" = ?[0m  [["user_id", 3]]
+  Rendered experiences/index.html.erb within layouts/application (0.9ms)
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "experiences" WHERE "experiences"."user_id" = ? AND "experiences"."user_id" = ?  [["user_id", 3], ["user_id", 3]]
+Completed 200 OK in 52ms (Views: 48.2ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/restaurants" for ::1 at 2015-06-02 23:34:58 -0500
+Processing by RestaurantsController#index as HTML
+  [1m[36mRestaurant Load (0.2ms)[0m  [1mSELECT "restaurants".* FROM "restaurants"[0m
+  Rendered restaurants/index.html.erb within layouts/application (0.7ms)
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 3]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "experiences" WHERE "experiences"."user_id" = ?[0m  [["user_id", 3]]
+Completed 200 OK in 71ms (Views: 68.9ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/experiences" for ::1 at 2015-06-02 23:34:59 -0500
+Processing by ExperiencesController#index as HTML
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 3]]
+  [1m[36mExperience Load (0.1ms)[0m  [1mSELECT "experiences".* FROM "experiences" WHERE "experiences"."user_id" = ?[0m  [["user_id", 3]]
+  Rendered experiences/index.html.erb within layouts/application (0.7ms)
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "experiences" WHERE "experiences"."user_id" = ?  [["user_id", 3]]
+Completed 200 OK in 56ms (Views: 52.5ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/restaurants" for ::1 at 2015-06-02 23:35:01 -0500
+Processing by RestaurantsController#index as HTML
+  [1m[36mRestaurant Load (0.2ms)[0m  [1mSELECT "restaurants".* FROM "restaurants"[0m
+  Rendered restaurants/index.html.erb within layouts/application (0.8ms)
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 3]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "experiences" WHERE "experiences"."user_id" = ?[0m  [["user_id", 3]]
+Completed 200 OK in 88ms (Views: 86.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/experiences" for ::1 at 2015-06-02 23:35:02 -0500
+Processing by ExperiencesController#index as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 3]]
+  [1m[36mExperience Load (0.1ms)[0m  [1mSELECT "experiences".* FROM "experiences" WHERE "experiences"."user_id" = ?[0m  [["user_id", 3]]
+  Rendered experiences/index.html.erb within layouts/application (0.8ms)
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "experiences" WHERE "experiences"."user_id" = ?  [["user_id", 3]]
+Completed 200 OK in 49ms (Views: 45.6ms | ActiveRecord: 0.6ms)
+
+
+Started DELETE "/users/sign_out" for ::1 at 2015-06-02 23:35:06 -0500
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"nUQcSuaelQ4kyZomxwCff2wKAfcqzfuUZMjkELX6uqkUY52d8jCRgT7nHY0wNPziMSS9BH13Y6P0bxgC3TY/FA=="}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 3]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 8ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/" for ::1 at 2015-06-02 23:35:06 -0500
+Processing by ExperiencesController#index as HTML
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for ::1 at 2015-06-02 23:35:06 -0500
+Processing by Devise::SessionsController#new as HTML
+  Rendered /usr/local/rvm/gems/ruby-2.2.1/gems/devise-3.5.1/app/views/devise/shared/_links.html.erb (0.6ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.1/gems/devise-3.5.1/app/views/devise/sessions/new.html.erb within layouts/application (9.4ms)
+Completed 200 OK in 68ms (Views: 65.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for ::1 at 2015-06-02 23:35:13 -0500
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"1LEunlxcYKNq61Sk88RUjprS0EogjyW6Wz49Eevh+JoWUDJXaiV3EeoaMl5shb/VdLbS5SZWqgYTWWfx1TyH+g==", "user"=>{"email"=>"stambolis@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."email" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["email", "stambolis@gmail.com"]]
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  UPDATE "users" SET "last_sign_in_at" = ?, "current_sign_in_at" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?  [["last_sign_in_at", "2015-06-02 14:24:24.837467"], ["current_sign_in_at", "2015-06-03 04:35:14.066130"], ["sign_in_count", 20], ["updated_at", "2015-06-03 04:35:14.069449"], ["id", 1]]
+  [1m[36m (2.6ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 167ms (ActiveRecord: 3.4ms)
+
+
+Started GET "/" for ::1 at 2015-06-02 23:35:14 -0500
+Processing by ExperiencesController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mExperience Load (0.1ms)[0m  [1mSELECT "experiences".* FROM "experiences" WHERE "experiences"."user_id" = ?[0m  [["user_id", 1]]
+  Rendered experiences/index.html.erb within layouts/application (0.9ms)
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "experiences" WHERE "experiences"."user_id" = ?  [["user_id", 1]]
+Completed 200 OK in 55ms (Views: 51.5ms | ActiveRecord: 0.5ms)
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to AddAddressToRestaurants (20150603043645)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.8ms)[0m  [1mALTER TABLE "restaurants" ADD "address" varchar[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20150603043645"]]
+  [1m[36m (0.9ms)[0m  [1mcommit transaction[0m
+Migrating to AddCityToRestaurants (20150603043707)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.5ms)[0m  [1mALTER TABLE "restaurants" ADD "city" varchar[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20150603043707"]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+Migrating to AddStateToRestaurants (20150603043739)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.5ms)[0m  [1mALTER TABLE "restaurants" ADD "state" varchar[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20150603043739"]]
+  [1m[36m (1.1ms)[0m  [1mcommit transaction[0m
+Migrating to AddPostcodeToRestaurants (20150603043828)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.5ms)[0m  [1mALTER TABLE "restaurants" ADD "postcode" varchar[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20150603043828"]]
+  [1m[36m (1.0ms)[0m  [1mcommit transaction[0m
+Migrating to AddTypeToRestaurants (20150603043905)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.5ms)[0m  [1mALTER TABLE "restaurants" ADD "type" varchar[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20150603043905"]]
+  [1m[36m (0.9ms)[0m  [1mcommit transaction[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.2ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+[0m
+  [1m[35m (0.2ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+
+
+
+Started GET "/experiences/new" for ::1 at 2015-06-02 23:39:38 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ExperiencesController#new as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "restaurants"[0m
+  Rendered experiences/new.html.erb within layouts/application (9.0ms)
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM "experiences" WHERE "experiences"."user_id" = ?  [["user_id", 1]]
+Completed 200 OK in 499ms (Views: 405.3ms | ActiveRecord: 2.5ms)
+
+
+Started POST "/create_restaurant" for ::1 at 2015-06-02 23:39:43 -0500
+Processing by RestaurantsController#create as HTML
+  Parameters: {"authenticity_token"=>"dyvr9lWHdbeCpYj3rKPvsO6BLf1kMCzZutGR/Fmo0lJ0yLcJlIMW9X7ieVTN30j4wfhK0Xd/DwKBQ6ifH9rvqA==", "venue_name"=>"alinea"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mRestaurant Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "restaurants" WHERE "restaurants"."venue_name" = 'Alinea' LIMIT 1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "restaurants" ("venue_name", "created_at", "updated_at") VALUES (?, ?, ?)  [["venue_name", "Alinea"], ["created_at", "2015-06-03 04:39:43.796621"], ["updated_at", "2015-06-03 04:39:43.796621"]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/experiences/new
+Completed 302 Found in 26ms (ActiveRecord: 1.9ms)
+
+
+Started GET "/experiences/new" for ::1 at 2015-06-02 23:39:43 -0500
+Processing by ExperiencesController#new as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "restaurants"[0m
+  [1m[35mRestaurant Load (0.2ms)[0m  SELECT  "restaurants".* FROM "restaurants"  ORDER BY "restaurants"."id" DESC LIMIT 1
+  [1m[36mRestaurant Load (0.3ms)[0m  [1mSELECT "restaurants".* FROM "restaurants"  ORDER BY venue_name ASC[0m
+  Rendered experiences/new.html.erb within layouts/application (5.2ms)
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "experiences" WHERE "experiences"."user_id" = ?  [["user_id", 1]]
+Completed 200 OK in 59ms (Views: 54.4ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/create_experience" for ::1 at 2015-06-02 23:39:58 -0500
+Processing by ExperiencesController#create as HTML
+  Parameters: {"authenticity_token"=>"ZsTGFFG5KUMD993ufuNIra/+6an+0LWHq3BEU3qiPQFlJ5rrkL1KAf+wLE0fn+/lgIeOhe2fllyQ4n0wPNAA+w==", "restaurant_id"=>"42", "best"=>"everything", "worst"=>"nothing", "date"=>"2015-06-02", "rating"=>"10", "comments"=>"", "user_id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "experiences" ("comments", "best", "worst", "date", "rating", "restaurant_id", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["comments", ""], ["best", "everything"], ["worst", "nothing"], ["date", "2015-06-02"], ["rating", 10], ["restaurant_id", 42], ["user_id", 1], ["created_at", "2015-06-03 04:39:58.903764"], ["updated_at", "2015-06-03 04:39:58.903764"]]
+  [1m[35m (3.0ms)[0m  commit transaction
+Redirected to http://localhost:3000/experiences
+Completed 302 Found in 12ms (ActiveRecord: 3.9ms)
+
+
+Started GET "/experiences" for ::1 at 2015-06-02 23:39:58 -0500
+Processing by ExperiencesController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mExperience Load (0.3ms)[0m  SELECT "experiences".* FROM "experiences" WHERE "experiences"."user_id" = ?  [["user_id", 1]]
+  [1m[36mRestaurant Load (0.3ms)[0m  [1mSELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = ? LIMIT 1[0m  [["id", 42]]
+  Rendered experiences/index.html.erb within layouts/application (19.2ms)
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "experiences" WHERE "experiences"."user_id" = ?  [["user_id", 1]]
+Completed 200 OK in 75ms (Views: 70.5ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/restaurants" for ::1 at 2015-06-02 23:40:01 -0500
+Processing by RestaurantsController#index as HTML
+  [1m[36mRestaurant Load (0.2ms)[0m  [1mSELECT "restaurants".* FROM "restaurants"[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36m (0.2ms)[0m  [1mSELECT "experiences"."rating" FROM "experiences" WHERE "experiences"."restaurant_id" = ?[0m  [["restaurant_id", 42]]
+  [1m[35m (0.2ms)[0m  SELECT "experiences"."rating" FROM "experiences" WHERE "experiences"."user_id" = ? AND "experiences"."restaurant_id" = ?  [["user_id", 1], ["restaurant_id", 42]]
+  Rendered restaurants/index.html.erb within layouts/application (6.0ms)
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "experiences" WHERE "experiences"."user_id" = ?[0m  [["user_id", 1]]
+Completed 200 OK in 103ms (Views: 100.5ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/experiences" for ::1 at 2015-06-02 23:40:02 -0500
+Processing by ExperiencesController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mExperience Load (0.2ms)[0m  [1mSELECT "experiences".* FROM "experiences" WHERE "experiences"."user_id" = ?[0m  [["user_id", 1]]
+  [1m[35mRestaurant Load (0.2ms)[0m  SELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = ? LIMIT 1  [["id", 42]]
+  Rendered experiences/index.html.erb within layouts/application (5.2ms)
+  [1m[36m (0.5ms)[0m  [1mSELECT COUNT(*) FROM "experiences" WHERE "experiences"."user_id" = ?[0m  [["user_id", 1]]
+Completed 200 OK in 70ms (Views: 65.3ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/restaurants" for ::1 at 2015-06-02 23:40:54 -0500
+Processing by RestaurantsController#index as HTML
+  [1m[35mRestaurant Load (0.3ms)[0m  SELECT "restaurants".* FROM "restaurants"
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.1ms)[0m  SELECT "experiences"."rating" FROM "experiences" WHERE "experiences"."restaurant_id" = ?  [["restaurant_id", 42]]
+  [1m[36m (0.1ms)[0m  [1mSELECT "experiences"."rating" FROM "experiences" WHERE "experiences"."user_id" = ? AND "experiences"."restaurant_id" = ?[0m  [["user_id", 1], ["restaurant_id", 42]]
+  Rendered restaurants/index.html.erb within layouts/application (4.0ms)
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "experiences" WHERE "experiences"."user_id" = ?  [["user_id", 1]]
+Completed 200 OK in 63ms (Views: 60.5ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/experiences" for ::1 at 2015-06-02 23:40:55 -0500
+Processing by ExperiencesController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mExperience Load (0.2ms)[0m  SELECT "experiences".* FROM "experiences" WHERE "experiences"."user_id" = ?  [["user_id", 1]]
+  [1m[36mRestaurant Load (0.1ms)[0m  [1mSELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = ? LIMIT 1[0m  [["id", 42]]
+  Rendered experiences/index.html.erb within layouts/application (2.7ms)
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "experiences" WHERE "experiences"."user_id" = ?  [["user_id", 1]]
+Completed 200 OK in 83ms (Views: 77.5ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/delete_experience/52/42" for ::1 at 2015-06-02 23:40:57 -0500
+Processing by ExperiencesController#destroy as HTML
+  Parameters: {"id"=>"52", "restaurant_id"=>"42"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mRestaurant Load (0.2ms)[0m  SELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = ? LIMIT 1  [["id", 42]]
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "experiences" WHERE "experiences"."restaurant_id" = ?[0m  [["restaurant_id", 42]]
+  [1m[35mExperience Load (0.2ms)[0m  SELECT  "experiences".* FROM "experiences" WHERE "experiences"."id" = ? LIMIT 1  [["id", 52]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  DELETE FROM "experiences" WHERE "experiences"."id" = ?  [["id", 52]]
+  [1m[36m (1.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mDELETE FROM "restaurants" WHERE "restaurants"."id" = ?[0m  [["id", 42]]
+  [1m[35m (1.1ms)[0m  commit transaction
+Redirected to http://localhost:3000/experiences
+Completed 302 Found in 36ms (ActiveRecord: 4.1ms)
+
+
+Started GET "/experiences" for ::1 at 2015-06-02 23:40:57 -0500
+Processing by ExperiencesController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mExperience Load (0.2ms)[0m  SELECT "experiences".* FROM "experiences" WHERE "experiences"."user_id" = ?  [["user_id", 1]]
+  Rendered experiences/index.html.erb within layouts/application (0.8ms)
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "experiences" WHERE "experiences"."user_id" = ?[0m  [["user_id", 1]]
+Completed 200 OK in 80ms (Views: 75.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/restaurants" for ::1 at 2015-06-02 23:40:59 -0500
+Processing by RestaurantsController#index as HTML
+  [1m[35mRestaurant Load (0.2ms)[0m  SELECT "restaurants".* FROM "restaurants"
+  Rendered restaurants/index.html.erb within layouts/application (0.8ms)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "experiences" WHERE "experiences"."user_id" = ?  [["user_id", 1]]
+Completed 200 OK in 59ms (Views: 56.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/experiences" for ::1 at 2015-06-02 23:41:00 -0500
+Processing by ExperiencesController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mExperience Load (0.1ms)[0m  SELECT "experiences".* FROM "experiences" WHERE "experiences"."user_id" = ?  [["user_id", 1]]
+  Rendered experiences/index.html.erb within layouts/application (0.7ms)
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "experiences" WHERE "experiences"."user_id" = ?[0m  [["user_id", 1]]
+Completed 200 OK in 60ms (Views: 57.0ms | ActiveRecord: 0.5ms)
