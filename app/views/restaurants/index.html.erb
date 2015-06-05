@@ -62,6 +62,9 @@
 
           <% end %>
 
+
+
+
         </dl>
         <div class="btn-group btn-group-justified">
           <a href="/restaurants/<%= restaurant.id %>" class="btn btn-primary">
@@ -71,6 +74,17 @@
           <a href="/restaurants/<%= restaurant.id %>/edit" class="btn btn-warning">
             <i class="fa fa-edit"></i>
           </a>
+
+          <% if restaurant.experiences.count == 0 %>
+
+           <a href="/delete_restaurant/<%= restaurant.id %>" class="btn btn-danger">
+            <i class="fa fa-trash"></i>
+          </a>
+
+          <%else %>
+
+
+          <%end %>
 
         </div>
       </div>

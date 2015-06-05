@@ -13,8 +13,8 @@ class ExperiencesController < ApplicationController
   end
 
   def new
-    time = Time.new
-    @time = time.strftime("%Y-%m-%d")
+    @current_time = Time.new.strftime("%m-%d-%Y")
+    @time = Chronic.parse(params[:date])
     @experience = Experience.new
     @restaurant = Restaurant.new
     @experiences = Experience.all
@@ -22,6 +22,7 @@ class ExperiencesController < ApplicationController
   end
 
   def create
+    @restaurants = Restaurant.all
     @experiences = Experience.all
     @experience = Experience.new
     @experience.comments = params[:comments]

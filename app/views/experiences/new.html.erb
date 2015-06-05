@@ -26,7 +26,7 @@
             <div class="form-group">
 
               <div class="col-sm-offset-2 col-sm-8">
-                <input type="text" id="venue_name" name="venue_name" placeholder="New Restaurant" class="form-control" value="<%= @restaurant.venue_name %>">
+                <input type="text" id="venue_name" name="venue_name" placeholder="New Restaurant" class="form-control">
               </div>
 
 
@@ -53,6 +53,7 @@
             <div class="col-sm-10">
               <%if Restaurant.count == 0 %>
               <h4>Please add a restaurant</h4>
+
               <% else %>
 
               <%= select_tag(:restaurant_id, options_from_collection_for_select(Restaurant.order("venue_name ASC"), :id, :venue_name, @restaurants.last.id), :class => "form-control") %>
@@ -90,9 +91,26 @@
 
             <div class="col-sm-10">
 
-              <input type="text" id="date" name="date" placeholder="YYYY-MM-DD" class="form-control" value="<%= @time %>">
+            <input type="text" id="date" name="date" placeholder="When did you go?" class="form-control" value="<%= @current_time %>">
+
+            <!--   <div class='input-group date' id='datetimepicker1'>
+              <input type='text' class="form-control" name="date" id="date">
+                <span class="input-group-addon">
+                  <span class="glyphicon glyphicon-calendar"></span>
+                </span>
+              </div> -->
+
             </div>
           </div>
+
+    <!-- for date time picker -->
+          <script type="text/javascript">
+  $(function () {
+    $('#datetimepicker1').datetimepicker({
+      format:'MM-DD-YYYY'
+    });
+  });
+</script>
 
           <!-- Label and input for rating -->
           <div class="form-group">
