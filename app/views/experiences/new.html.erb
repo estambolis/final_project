@@ -1,12 +1,12 @@
 <!-- Validation failure messages -->
 
 <% if @experience.errors.any? %>
-  <% @experience.errors.full_messages.each do |message| %>
-    <div class="alert alert-dismissable alert-danger">
-      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-      <%= message %>
-    </div>
-  <% end %>
+<% @experience.errors.full_messages.each do |message| %>
+<div class="alert alert-dismissable alert-danger">
+  <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+  <%= message %>
+</div>
+<% end %>
 <% end %>
 
 
@@ -21,75 +21,75 @@
         <h3 class="panel-title">Add Experience</h3>
       </div>
       <div class="panel-body">
-         <form action="/create_restaurant" method="post" class="form-horizontal">
+       <form action="/create_restaurant" method="post" class="form-horizontal">
          <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
-            <div class="form-group">
+         <div class="form-group">
 
-              <div class="col-sm-offset-2 col-sm-8">
-                <input type="text" id="venue_name" name="venue_name" placeholder="New Restaurant" class="form-control">
-              </div>
-
-
-              <div class="form-group">
-                <div class="col-sm-offset-10">
-                  <button class="btn btn-success">
-                    Add
-                  </button>
-                </div>
-              </div>
-
-            </div>
-          </form>
-        <form action="/create_experience" method="post" class="form-horizontal">
-          <!-- Hidden input for authenticity token to protect from forgery -->
-          <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+          <div class="col-sm-offset-2 col-sm-8">
+            <input type="text" id="venue_name" name="venue_name" placeholder="New Restaurant" class="form-control">
+          </div>
 
 
-             <!-- Label and input for restaurant_id -->
           <div class="form-group">
-            <label for="restaurant_id" class="col-sm-2 control-label">
-              Restaurant
-            </label>
-            <div class="col-sm-10">
-              <%if Restaurant.count == 0 %>
-              <h4>Please add a restaurant</h4>
-
-              <% else %>
-
-              <%= select_tag(:restaurant_id, options_from_collection_for_select(Restaurant.order("venue_name ASC"), :id, :venue_name, @restaurants.last.id), :class => "form-control") %>
-
-              <% end %>
-
+            <div class="col-sm-offset-10">
+              <button class="btn btn-success">
+                Add
+              </button>
             </div>
           </div>
 
-          <!-- Label and input for best -->
-          <div class="form-group">
-            <label for="best" class="col-sm-2 control-label">
-              Best
-            </label>
-            <div class="col-sm-10">
-              <input type="text" id="best" name="best" placeholder="What tasted good?" class="form-control" value="<%= @experience.best %>">
-            </div>
+        </div>
+      </form>
+      <form action="/create_experience" method="post" class="form-horizontal">
+        <!-- Hidden input for authenticity token to protect from forgery -->
+        <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+
+        <!-- Label and input for restaurant_id -->
+        <div class="form-group">
+          <label for="restaurant_id" class="col-sm-2 control-label">
+            Restaurant
+          </label>
+          <div class="col-sm-10">
+            <%if Restaurant.count == 0 %>
+            <h4>Please add a restaurant</h4>
+
+            <% else %>
+
+            <%= select_tag(:restaurant_id, options_from_collection_for_select(Restaurant.order("venue_name ASC"), :id, :venue_name, @restaurants.last.id), :class => "form-control") %>
+
+            <% end %>
+
           </div>
+        </div>
 
-          <!-- Label and input for worst -->
-          <div class="form-group">
-            <label for="worst" class="col-sm-2 control-label">
-              Worst
-            </label>
-            <div class="col-sm-10">
-              <input type="text" id="worst" name="worst" placeholder="What wasn't so great?" class="form-control" value="<%= @experience.worst %>">
-            </div>
+        <!-- Label and input for best -->
+        <div class="form-group">
+          <label for="best" class="col-sm-2 control-label">
+            Best
+          </label>
+          <div class="col-sm-10">
+            <input type="text" id="best" name="best" placeholder="What tasted good?" class="form-control" value="<%= @experience.best %>">
           </div>
+        </div>
 
-          <!-- Label and input for date -->
-          <div class="form-group">
-            <label for="date" class="col-sm-2 control-label">
-              Date
-            </label>
+        <!-- Label and input for worst -->
+        <div class="form-group">
+          <label for="worst" class="col-sm-2 control-label">
+            Worst
+          </label>
+          <div class="col-sm-10">
+            <input type="text" id="worst" name="worst" placeholder="What wasn't so great?" class="form-control" value="<%= @experience.worst %>">
+          </div>
+        </div>
 
-            <div class="col-sm-10">
+        <!-- Label and input for date -->
+        <div class="form-group">
+          <label for="date" class="col-sm-2 control-label">
+            Date
+          </label>
+
+          <div class="col-sm-10">
 
             <input type="text" id="date" name="date" placeholder="When did you go?" class="form-control" value="<%= @current_time %>">
 
@@ -103,14 +103,14 @@
             </div>
           </div>
 
-    <!-- for date time picker -->
+          <!-- for date time picker -->
           <script type="text/javascript">
-  $(function () {
-    $('#datetimepicker1').datetimepicker({
-      format:'MM-DD-YYYY'
-    });
-  });
-</script>
+            $(function () {
+              $('#datetimepicker1').datetimepicker({
+                format:'MM-DD-YYYY'
+              });
+            });
+          </script>
 
           <!-- Label and input for rating -->
           <div class="form-group">
@@ -119,14 +119,14 @@
             </label>
 
 
-          <div class="col-sm-8">
-          <% (1..10).each do |number| %>
-            <% if number == 5 %>
+            <div class="col-sm-8">
+              <% (1..10).each do |number| %>
+              <% if number == 5 %>
               <label class="radio-inline"><input type="radio" name="rating" value="<%= number %>" checked > <%= number %> </label>
               <% else %>
-            <label class="radio-inline"><input type="radio" name="rating" value="<%= number %>"  > <%= number %> </label>
-            <% end %>
-          <% end %>
+              <label class="radio-inline"><input type="radio" name="rating" value="<%= number %>"  > <%= number %> </label>
+              <% end %>
+              <% end %>
 
 
 
@@ -166,9 +166,9 @@
 
 
 
-        </div>
       </div>
     </div>
   </div>
+</div>
 
 <!-- End responsive panel example -->

@@ -5,21 +5,29 @@
     <div class="panel panel-default">
       <div class="panel-heading">
 
-        <h3 class="panel-title"><%= @experience.restaurant.venue_name %></h3>
+        <a href="/restaurants/<%= @experience.restaurant_id %>"style="text-decoration:none;"><h3 class="panel-title"><%= @experience.restaurant.venue_name %></h3></a>
       </div>
       <div class="panel-body">
         <div class="row">
           <div class="col-md-12">
             <dl class="dl-horizontal">
 
+              <hr>
+
               <dt>Date:</dt>
-              <dd><%= @experience.date %></dd>
+              <dd><%= @experience.date.strftime("%m-%d-%Y") %></dd>
+
+              <hr>
 
               <dt>Best:</dt>
               <dd><%= @experience.best %></dd>
 
+              <hr>
+
               <dt>Worst:</dt>
               <dd><%= @experience.worst %></dd>
+
+              <hr>
 
               <dt>Rating:</dt>
               <dd><%= @experience.rating %></dd>

@@ -85,11 +85,11 @@
 
         <ul class="nav navbar-nav navbar-right">
           <% if current_user != nil %>
-          <li><a href="/users/sign_out" data-method="delete">Sign Out</a></li>
-          <li><a href="/users/edit"><%= current_user.email %></a></li>
+          <li><a href="/users/sign_out" style="text-decoration:none;" data-method="delete">Sign Out</a></li>
+          <li><a href="/users/edit" style="text-decoration:none;"><%= current_user.email %></a></li>
           <% else %>
-          <li><a href="/users/sign_in">Sign In</a></li>
-          <li><a href="/users/sign_up">Sign Up</a></li>
+          <li><a href="/users/sign_in" style="text-decoration:none;">Sign In</a></li>
+          <li><a href="/users/sign_up" style="text-decoration:none;">Sign Up</a></li>
         <% end %>
 
         </ul>
