@@ -9,7 +9,7 @@ class ExperiencesController < ApplicationController
 
   def show
     @experience = Experience.find(params[:id])
-    @experiences = Experience.all
+
   end
 
   def new
@@ -23,7 +23,6 @@ class ExperiencesController < ApplicationController
 
   def create
     @restaurants = Restaurant.all
-    @experiences = Experience.all
     @experience = Experience.new
     @experience.comments = params[:comments]
     @experience.best = params[:best]
@@ -42,11 +41,9 @@ class ExperiencesController < ApplicationController
 
   def edit
     @experience = Experience.find(params[:id])
-    @experiences = Experience.all
   end
 
   def update
-    @experiences = Experience.all
     @experience = Experience.find(params[:id])
 
     @experience.comments = params[:comments]
