@@ -46,12 +46,12 @@
               </a>
 
               <a href="/experiences/<%= @experience.id %>/edit" class="btn btn-warning">
-                <i class="fa fa-edit"></i>
+                <i class="fa fa-edit"> Edit</i>
               </a>
 
-              <a href="/delete_experience/<%= @experience.id %>/<%= @experience.restaurant_id %>" class="btn btn-danger" rel="nofollow">
-                <i class="fa fa-trash-o"></i>
-              </a>
+               <a class="btn btn-danger" style="text-decoration:none;" href="/delete_experience/<%= @experience.id %>/<%= @experience.restaurant_id %>">
+  <i class="fa fa-trash icon-large"></i> Delete</a>
+
             </div>
           </div>
         </div>

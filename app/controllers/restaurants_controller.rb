@@ -31,8 +31,7 @@ class RestaurantsController < ApplicationController
   end
 
   def new
-    @restaurant = Restaurant.new
-    @experiences = Experience.all
+
   end
 
 
@@ -45,12 +44,14 @@ class RestaurantsController < ApplicationController
     @restaurant.venue_name = venue_name
     @experiences = Experience.all
 
+
+
      factual = Factual.new("Kxa1eA6u24jMllpv2EuhQtPse084AWMZ2pnTuNoN","20kMPivt9eJwzt2SLYHNPSWosrtcYkw3jpqG83ng")
 
 
-    if results = factual.table("places-us").search("#{@restaurant.venue_name}").filters("$and" => [{"category_ids" => {"$includes" => 338}}, {"locality" => "chicago"}]).rows != []
+    if results = factual.table("places-us").search("#{@restaurant.venue_name}").filters("$and" => [{"category_ids" => {"$includes" => 338}}, {"region" => params[:state]}]).rows != []
 
-      results = factual.table("places-us").search("#{@restaurant.venue_name}").filters("$and" => [{"category_ids" => {"$includes" => 338}}, {"locality" => "chicago"}]).rows
+      results = factual.table("places-us").search("#{@restaurant.venue_name}").filters("$and" => [{"category_ids" => {"$includes" => 338}}, {"region" => params[:state]}]).rows
 
       @restaurant.venue_name = results[0]["name"]
       @restaurant.address = results[0]["address"]
@@ -90,10 +91,14 @@ class RestaurantsController < ApplicationController
 
     @restaurant.address = params[:address]
 
+    @restaurant.city = params[:city]
+
+    @restaurant.state = params[:state]
+
 
 
     if @restaurant.save
-      redirect_to "/restaurants", :notice => "Restaurant updated successfully."
+      redirect_to "/restaurants/#{@restaurant.id}", :notice => "Restaurant updated successfully."
     else
       render 'edit'
     end
