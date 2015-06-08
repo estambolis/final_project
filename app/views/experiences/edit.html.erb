@@ -20,7 +20,7 @@
         <h3 class="panel-title text-center">Edit experience at <%= @experience.restaurant.venue_name %></h3>
       </div>
       <div class="panel-body">
-        <form action="/update_experience/<%= @experience.id %>" method="post" class="form-horizontal">
+        <form action="/update_experience/<%= @experience.id %>" method="post" class="form-horizontal" enctype="multipart/form-data">
           <!-- Hidden input for authenticity token to protect from forgery -->
           <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
 
@@ -95,6 +95,8 @@
               <textarea id="comments" name="comments" placeholder="Comments" class="form-control" rows="3"><%= @experience.comments %></textarea>
             </div>
           </div>
+
+            <input type="file" id="image" name="image" class="form-control">
 
           <!-- Label and input for user_id -->
 

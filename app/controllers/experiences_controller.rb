@@ -104,8 +104,10 @@ class ExperiencesController < ApplicationController
     @experience.worst = params[:worst]
     @experience.date = params[:date]
     @experience.rating = params[:rating]
+    @experience.image = params[:image]
     @experience.restaurant_id = params[:restaurant_id]
     @experience.user_id = params[:user_id]
+
 
     if @experience.save
       redirect_to "/experiences", :notice => "Experience updated successfully."
