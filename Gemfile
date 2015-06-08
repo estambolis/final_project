@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+gem 'mini_magick'
+
 gem 'carrierwave'
 
 gem 'momentjs-rails', '>= 2.9.0'

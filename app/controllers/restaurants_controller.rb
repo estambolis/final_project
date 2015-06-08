@@ -23,9 +23,11 @@ class RestaurantsController < ApplicationController
 
     parsed_data_coord = JSON.parse(open(url_coord).read)
 
-    @lat = parsed_data_coord["results"][0]["geometry"]["location"]["lat"]
+    @lat = parsed_data_coord["results"].present? ?
+    parsed_data_coord["results"][0]["geometry"]["location"]["lat"] : parsed_data_coord["results"]
 
-    @lng = parsed_data_coord["results"][0]["geometry"]["location"]["lng"]
+    @lng = parsed_data_coord["results"].present? ?
+    parsed_data_coord["results"][0]["geometry"]["location"]["lng"] : parsed_data_coord["results"]
 
 
   end

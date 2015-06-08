@@ -10,6 +10,9 @@ class ExperiencesController < ApplicationController
   def show
     @experience = Experience.find(params[:id])
 
+
+
+
   end
 
   def new
@@ -18,6 +21,7 @@ class ExperiencesController < ApplicationController
     @restaurant = Restaurant.new
     @experiences = Experience.all
     @restaurants = Restaurant.all
+
 
     @us_states =
       [
@@ -82,6 +86,7 @@ class ExperiencesController < ApplicationController
     @experience.worst = params[:worst]
     @experience.date = Chronic.parse(params[:date])
     @experience.rating = params[:rating]
+    @experience.image = params[:image]
     @experience.restaurant_id = params[:restaurant_id]
     @experience.user_id = current_user.id
 
@@ -121,10 +126,13 @@ class ExperiencesController < ApplicationController
 
     if @restaurant.experiences.count == 1
       @experience = Experience.find(params[:id])
+      @experience.remove_image!
+
       @experience.destroy
       @restaurant.destroy
     else
       @experience = Experience.find(params[:id])
+      @experience.remove_image!
       @experience.destroy
     end
 

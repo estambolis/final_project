@@ -1,7 +1,7 @@
 <!-- Responsive panel example-->
 <hr>
 <div class="row">
-  <div class="col-md-offset-3 col-md-6">
+  <div class="col-md-offset-1 col-md-6">
     <div class="panel panel-default">
       <div class="panel-heading">
 
@@ -37,29 +37,57 @@
               <dt>Comments:</dt>
               <dd><%= @experience.comments %></dd>
 
-              <hr>
 
-              <img src="<%= @experience.image %>" class="img-responsive">
 
             </dl>
-            <div class="btn-group btn-group-justified">
-              <a href="/experiences" class="btn btn-primary">
-                <i class="fa fa-chevron-left"></i>
-              </a>
 
-              <a href="/experiences/<%= @experience.id %>/edit" class="btn btn-warning">
-                <i class="fa fa-edit"> Edit</i>
-              </a>
-
-               <a class="btn btn-danger" style="text-decoration:none;" href="/delete_experience/<%= @experience.id %>/<%= @experience.restaurant_id %>">
-  <i class="fa fa-trash icon-large"></i> Delete</a>
-
-            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
+  <div class="col-md-5">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+
+        <h3 class="panel-title text-center">One picture to sum it up...</h3>
+      </div>
+      <div class="panel-body">
+
+        <img src="<%= @experience.image %>" class="img-responsive">
+        <!-- <i class="fa icon-picture"></i> -->
+
+      </div>
+    </div>
+  </div>
+
+
+
+  <div class="col-md-offset-3 col-md-8">
+   <div class="btn-group btn-group-justified">
+    <a href="/experiences" class="btn btn-primary">
+      <i class="fa fa-chevron-left"></i>
+    </a>
+
+    <a href="/experiences/<%= @experience.id %>/edit" class="btn btn-warning">
+      <i class="fa fa-edit"> Edit</i>
+    </a>
+
+    <a class="btn btn-danger" style="text-decoration:none;" href="/delete_experience/<%= @experience.id %>/<%= @experience.restaurant_id %>">
+      <i class="fa fa-trash icon-large"></i> Delete</a>
+    </div>
+
+  </div>
+  <hr>
+
 </div>
+
+<div class="row">
+  <hr>
+</div>
+
+
+
+
 
 <!-- End responsive panel example -->
