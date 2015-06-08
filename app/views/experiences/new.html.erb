@@ -104,22 +104,21 @@
 
           <div class="col-sm-8">
 
-         <!--    <input type="text" id="date" name="date" placeholder="When did you go?" class="form-control" value="<%= @current_time %>"> -->
 
-              <div class='input-group date' id='datetimepicker1'>
+            <div class='input-group date' id='datetimepicker'>
               <input type='text' class="form-control" name="date" id="date" value="<%= @current_time %>">
-                <span class="input-group-addon">
-                  <span class="glyphicon glyphicon-calendar"></span>
-                </span>
-              </div>
-
+              <span class="input-group-addon">
+                <span class="glyphicon glyphicon-calendar"></span>
+              </span>
             </div>
+
           </div>
+        </div>
 
           <!-- for date time picker -->
           <script type="text/javascript">
             $(function () {
-              $('#datetimepicker1').datetimepicker({
+              $('#datetimepicker').datetimepicker({
                 format:'MM-DD-YYYY'
               });
             });

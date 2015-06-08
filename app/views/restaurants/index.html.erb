@@ -25,74 +25,74 @@
       <div class="panel-body">
         <dl>
 
-        <% if current_user != nil %>
+          <% if current_user != nil %>
 
           <dt>Average Rating</dt>
-          <%  venue = @experiences.where :restaurant_id => restaurant.id
+          <%  venue = restaurant.experiences
           rating = venue.pluck(:rating)
           sum = rating.sum.to_f
           @total = rating.count
           @avg = (sum/@total).round(2) %>
           <dd><%= @avg %> (<%= @total %> reviews) </dd>
 
-            <dt>Your Average</dt>
+          <dt>Your Average</dt>
           <%
-          venue = @experiences.where :user_id => current_user.id, :restaurant_id => restaurant.id
+          venue = restaurant.experiences.where :user_id => current_user.id
           rating = venue.pluck(:rating)
           sum = rating.sum.to_f
           total = rating.count %>
-            <% if total > 0
-          @avg2 = (sum/total).round(2)
-              else
-          @avg2 = "None"
+          <% if total > 0
+            @avg2 = (sum/total).round(2)
+          else
+            @avg2 = "None"
             end%>
 
 
-          <dd><%= @avg2 %> </dd>
+            <dd><%= @avg2 %> </dd>
 
-          <% else %>
+            <% else %>
 
-             <dt>Average Rating</dt>
-          <%  venue = @experiences.where :restaurant_id => restaurant.id
-          rating = venue.pluck(:rating)
-          sum = rating.sum.to_f
-          @total = rating.count
-          @avg = (sum/@total).round(2) %>
-          <dd><%= @avg %> (<%= @total %> reviews) </dd>
+            <dt>Average Rating</dt>
+            <%  venue = restaurant.experiences
+            rating = venue.pluck(:rating)
+            sum = rating.sum.to_f
+            @total = rating.count
+            @avg = (sum/@total).round(2) %>
+            <dd><%= @avg %> (<%= @total %> reviews) </dd>
 
-          <% end %>
+            <% end %>
 
-          <dt>Type</dt>
-          <dd><%= restaurant.food_type %>
-
-
-        </dl>
-        <div class="btn-group btn-group-justified">
-          <a href="/restaurants/<%= restaurant.id %>" class="btn btn-primary">
-            <i class="fa fa-search-plus"></i>
-          </a>
-
-          <a href="/restaurants/<%= restaurant.id %>/edit" class="btn btn-warning">
-            <i class="fa fa-edit"></i>
-          </a>
-
-          <% if restaurant.experiences.count == 0 %>
-
-           <a href="/delete_restaurant/<%= restaurant.id %>" class="btn btn-danger">
-            <i class="fa fa-trash"></i>
-          </a>
-
-          <%else %>
+            <dt>Type</dt>
+            <dd><%= restaurant.food_type %>
 
 
-          <%end %>
+            </dl>
+            <div class="btn-group btn-group-justified">
+              <a href="/restaurants/<%= restaurant.id %>" class="btn btn-primary">
+                <i class="fa fa-search-plus"></i>
+              </a>
 
+              <a href="/restaurants/<%= restaurant.id %>/edit" class="btn btn-warning">
+                <i class="fa fa-edit"></i>
+              </a>
+
+              <% if restaurant.experiences.count == 0 %>
+
+              <a href="/delete_restaurant/<%= restaurant.id %>" class="btn btn-danger">
+                <i class="fa fa-trash"></i>
+              </a>
+
+              <%else %>
+
+
+              <%end %>
+
+            </div>
+          </div>
         </div>
       </div>
+      <% end %>
     </div>
-  </div>
-<% end %>
-</div>
 
 <!-- You can ignore the following. It's a quick and dirty example of how to get a Pinterest-style layout with quick search. -->
 <!-- JavaScript for Isotope layout and quicksearch -->
