@@ -1,7 +1,5 @@
 <!-- Responsive panel example-->
 <hr>
-
-<%= @parsed_data_coord %>
 <div class="row">
   <div class="col-md-8">
     <div class="panel panel-default">
@@ -21,10 +19,10 @@
 
             </dl>
 
-            <%if @restaurant.address == "Unavailable" %>
-            <hr>
+            <%if @restaurant.address == "Unavailable" || @lat == [] %>
+              <h5 class="text-center">Unfortunately, a map isn't available for the provided address</h5>
             <% else %>
-            <div id="map-canvas"></div>
+              <div id="map-canvas"></div>
             <% end %>
 
 
