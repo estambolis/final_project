@@ -20,61 +20,65 @@
             </dl>
 
             <%if @restaurant.address == "Unavailable" || @lat == [] %>
-              <h5 class="text-center">Unfortunately, a map isn't available for the provided address</h5>
+            <h5 class="text-center">Unfortunately, a map isn't available for the provided address</h5>
             <% else %>
-              <div id="map-canvas"></div>
+            <div id="map-canvas"></div>
             <% end %>
 
 
+          </div>
         </div>
       </div>
     </div>
+
   </div>
 
-</div>
+  <div class="col-md-4">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">Some Favorites</h3>
+      </div>
+      <div class="panel-body">
 
-<div class="col-md-4">
-  <div class="panel panel-default">
-    <div class="panel-heading">
-      <h3 class="panel-title">Some Favorites</h3>
+        <% @restaurant.experiences.last(3).each do |item| %>
+        <dd> <%= item.best %> </dd>
+        <% end %>
+      </div>
     </div>
-    <div class="panel-body">
 
-      <% @restaurant.experiences.last(3).each do |item| %>
-      <dd> <%= item.best %> </dd>
-      <% end %>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">Average Rating (<%= @restaurant.experiences.count %> ratings)</h3>
+      </div>
+      <div class="panel-body">
+        <% if @restaurant.experiences.count == 0 %>
+        <h2> None </h2>
+        <% else %>
+        <% ratings = @restaurant.experiences.pluck(:rating) %>
+        <h2 class="text-center"><%= ((ratings.sum.to_f)/(ratings.count)).round(2) %></h2>
+        <% end %>
+      </div>
     </div>
+    <div class="btn-group btn-group-justified">
+      <a href="/restaurants" class="btn btn-primary" style="text-decoration:none;">
+        <i class="fa fa-chevron-left">Back to Restaurants</i>
+      </a>
+
+      <a href="/restaurants/<%= @restaurant.id %>/edit" class="btn btn-warning" style="text-decoration:none;">Edit Restaurant
+        <i class="fa fa-edit"></i>
+      </a>
+
+    </div>
+
   </div>
-
-  <div class="panel panel-default">
-    <div class="panel-heading">
-      <h3 class="panel-title">Average Rating (<%= @restaurant.experiences.count %> ratings)</h3>
-    </div>
-    <div class="panel-body">
-      <% ratings = @restaurant.experiences.pluck(:rating) %>
-      <h2 class="text-center"><%= (ratings.sum.to_f)/(ratings.count) %></h2>
-    </div>
-  </div>
-      <div class="btn-group btn-group-justified">
-              <a href="/restaurants" class="btn btn-primary" style="text-decoration:none;">
-                <i class="fa fa-chevron-left">Back to Restaurants</i>
-              </a>
-
-              <a href="/restaurants/<%= @restaurant.id %>/edit" class="btn btn-warning" style="text-decoration:none;">Edit Restaurant
-                <i class="fa fa-edit"></i>
-              </a>
-
-          </div>
-
-</div>
 
 </div>
 
 <div class="row">
-<div class="col-md-offset-2 col-md-6">
+  <div class="col-md-offset-2 col-md-6">
 
 
-</div>
+  </div>
 
 </div>
 

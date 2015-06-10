@@ -30,19 +30,22 @@
           <dt>Average Rating</dt>
           <%  venue = restaurant.experiences
           rating = venue.pluck(:rating)
-          sum = rating.sum.to_f
           @total = rating.count
-          @avg = (sum/@total).round(2) %>
+          if @total== 0 %>
+          <dd> No reviews </dd>
+          <% else
+          @avg = (rating.sum.to_f/@total).round(2) %>
           <dd><%= @avg %> (<%= @total %> reviews) </dd>
+          <% end %>
+
 
           <dt>Your Average</dt>
           <%
           venue = restaurant.experiences.where :user_id => current_user.id
           rating = venue.pluck(:rating)
-          sum = rating.sum.to_f
           total = rating.count %>
           <% if total > 0
-            @avg2 = (sum/total).round(2)
+            @avg2 = (rating.sum.to_f/total).round(2)
           else
             @avg2 = "None"
             end%>
@@ -55,10 +58,13 @@
             <dt>Average Rating</dt>
             <%  venue = restaurant.experiences
             rating = venue.pluck(:rating)
-            sum = rating.sum.to_f
             @total = rating.count
-            @avg = (sum/@total).round(2) %>
+            if @total== 0 %>
+            <dd> No reviews </dd>
+            <% else
+            @avg = (rating.sum_to_f/@total).round(2) %>
             <dd><%= @avg %> (<%= @total %> reviews) </dd>
+            <% end %>
 
             <% end %>
 
