@@ -1,61 +1,6 @@
 <div class="text-center"><h2>Edit <%= resource_name.to_s.humanize %></h2></div>
 <hr>
 
-<% @us_states =
-      [
-      ['AK', 'AK'],
-    ['AL', 'AL'],
-    ['AR', 'AR'],
-    ['AZ', 'AZ'],
-    ['CA', 'CA'],
-    ['CO', 'CO'],
-    ['CT', 'CT'],
-    ['DC', 'DC'],
-    ['DE', 'DE'],
-    ['FL', 'FL'],
-    ['GA', 'GA'],
-    ['HI', 'HI'],
-    ['IA', 'IA'],
-    ['ID', 'ID'],
-    ['IL', 'IL'],
-    ['IN', 'IN'],
-    ['KS', 'KS'],
-    ['KY', 'KY'],
-    ['LA', 'LA'],
-    ['MA', 'MA'],
-    ['MD', 'MD'],
-    ['ME', 'ME'],
-    ['MI', 'MI'],
-    ['MN', 'MN'],
-    ['MO', 'MO'],
-    ['MS', 'MS'],
-    ['MT', 'MT'],
-    ['NC', 'NC'],
-    ['ND', 'ND'],
-    ['NE', 'NE'],
-    ['NH', 'NH'],
-    ['NJ', 'NJ'],
-    ['NM', 'NM'],
-    ['NV', 'NV'],
-    ['NY', 'NY'],
-    ['OH', 'OH'],
-    ['OK', 'OK'],
-    ['OR', 'OR'],
-    ['PA', 'PA'],
-    ['RI', 'RI'],
-    ['SC', 'SC'],
-    ['SD', 'SD'],
-    ['TN', 'TN'],
-    ['TX', 'TX'],
-    ['UT', 'UT'],
-    ['VA', 'VA'],
-    ['VT', 'VT'],
-    ['WA', 'WA'],
-    ['WI', 'WI'],
-    ['WV', 'WV'],
-    ['WY', 'WY']
-      ] %>
-
 <div class="row">
 <div class="col-sm-offset-1 col-sm-10 col-md-offset-4 col-md-6">
 
@@ -81,7 +26,7 @@
   <div class="field">
     <%= f.label :preferred_state %>
     &nbsp;
-    <%= f.select :state, options_for_select(@us_states, current_user.state) %>
+    <%= f.select :state, options_for_select(Eated::Application.us_states, current_user.state) %>
   </div>
 
   <div class="row">&nbsp;</div>

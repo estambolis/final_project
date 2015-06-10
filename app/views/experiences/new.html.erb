@@ -38,7 +38,7 @@
                 <div class="input-group">
                   State:&nbsp;
 
-                  <%= select_tag :state, options_for_select(@us_states,current_user.state) %>
+                  <%= select_tag :state, options_for_select(Eated::Application.us_states,current_user.state) %>
 
                 </div><!-- /input-group -->
               </div>
