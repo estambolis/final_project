@@ -62,7 +62,7 @@
             if @total== 0 %>
             <dd> No reviews </dd>
             <% else
-            @avg = (rating.sum_to_f/@total).round(2) %>
+            @avg = (rating.sum.to_f/@total).round(2) %>
             <dd><%= @avg %> (<%= @total %> reviews) </dd>
             <% end %>
 
