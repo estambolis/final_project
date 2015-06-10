@@ -1,0 +1,45 @@
+<!-- Responsive panel example-->
+<br>
+<br>
+<div class="row">
+  <div class="col-sm-offset-1 col-sm-10 col-md-offset-3 col-md-6">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title text-center"> <%= @follow.receiver.username %></h3>
+      </div>
+      <div class="panel-body">
+        <div class="row">
+          <div class="col-md-12">
+            <dl class="dl-horizontal">
+              <% if @follow.receiver.experiences.last != nil %>
+            <dt>Last Restaurant: </dt>
+              <dd> <%= @follow.receiver.experiences.last.restaurant.venue_name %> </dd>
+              <dt>Rating:</dt>
+              <dd><%= @follow.receiver.experiences.last.rating %> </dd>
+              <dt>Favorites:</dt>
+              <dd><%= @follow.receiver.experiences.last.best %></dd>
+              <hr>
+              <img src="<%= @follow.receiver.experiences.last.image %>" class="img-responsive">
+          <% else %>
+          <hr>
+          <h4 class="text-center">No experiences </h4>
+          <% end %>
+
+            </dl>
+            <div class="btn-group btn-group-justified">
+              <a href="/follows" class="btn btn-primary">
+                <i class="fa fa-chevron-left"></i>
+              </a>
+
+              <a href="/delete_follow/<%= @follow.id %>" class="btn btn-danger" rel="nofollow">
+                <i class="fa fa-trash-o">&nbsp;Stop Following</i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- End responsive panel example -->

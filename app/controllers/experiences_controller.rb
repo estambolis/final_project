@@ -2,7 +2,7 @@ class ExperiencesController < ApplicationController
 
 
   def index
-    @experiences = Experience.where(:user_id => current_user.id)
+    @experiences = current_user.experiences
 
 
   end
