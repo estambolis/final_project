@@ -12,7 +12,7 @@
           <div class="col-md-12">
             <dl class="dl-horizontal">
               <% if @follow.receiver.experiences.last != nil %>
-            <dt>Last Restaurant: </dt>
+              <dt>Last Restaurant: </dt>
               <dd> <%= @follow.receiver.experiences.last.restaurant.venue_name %> </dd>
               <dt>Rating:</dt>
               <dd><%= @follow.receiver.experiences.last.rating %> </dd>
@@ -20,10 +20,10 @@
               <dd><%= @follow.receiver.experiences.last.best %></dd>
               <hr>
               <img src="<%= @follow.receiver.experiences.last.image %>" class="img-responsive">
-          <% else %>
-          <hr>
-          <h4 class="text-center">No experiences </h4>
-          <% end %>
+              <% else %>
+              <hr>
+              <h4 class="text-center">No experiences </h4>
+              <% end %>
 
             </dl>
             <div class="btn-group btn-group-justified">

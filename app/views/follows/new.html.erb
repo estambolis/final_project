@@ -1,12 +1,12 @@
 <!-- Validation failure messages -->
 
 <% if @follow.errors.any? %>
-  <% @follow.errors.full_messages.each do |message| %>
-    <div class="alert alert-dismissable alert-danger">
-      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-      <%= message %>
-    </div>
-  <% end %>
+<% @follow.errors.full_messages.each do |message| %>
+<div class="alert alert-dismissable alert-danger">
+  <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+  <%= message %>
+</div>
+<% end %>
 <% end %>
 
 <!-- Responsive panel example -->
@@ -29,7 +29,7 @@
               Receiver
             </label>
             <div class="col-sm-10">
-            <%= select_tag :receiver_id, options_from_collection_for_select(User.where.not(id: current_user.id), :id, :username, @follow.receiver_id), :class => "form-control" %>
+              <%= select_tag :receiver_id, options_from_collection_for_select(User.where.not(id: current_user.id), :id, :username, @follow.receiver_id), :class => "form-control" %>
             </div>
           </div>
 

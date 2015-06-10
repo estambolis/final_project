@@ -11,7 +11,7 @@
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootswatch/3.3.4/flatly/bootstrap.min.css">
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 
-    <style>
+  <style>
     #map-canvas {
       height: 350px;
       margin: 20px;
@@ -48,22 +48,22 @@
 
 
     .header img {
-  float: left;
-  width: 175px;
-  height: 127px;
-  background: #555;
-}
+      float: left;
+      width: 175px;
+      height: 127px;
+      background: #555;
+    }
 
-.header h1 {
-  position: relative;
-  top: 30px;
-  left: 10px;
-}
+    .header h1 {
+      position: relative;
+      top: 30px;
+      left: 10px;
+    }
 
 
-  .img-responsive {
-    margin: 0 auto;
-  }
+    .img-responsive {
+      margin: 0 auto;
+    }
 
   </style>
 
@@ -115,7 +115,7 @@
           <% else %>
           <li><a href="/users/sign_in" style="text-decoration:none;">Sign In</a></li>
           <li><a href="/users/sign_up" style="text-decoration:none;">Sign Up</a></li>
-        <% end %>
+          <% end %>
 
         </ul>
       </div><!-- /.navbar-collapse -->
@@ -124,17 +124,17 @@
 
   <div class="container">
     <% if notice.present? %>
-      <div class="alert alert-dismissable alert-success">
-        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-        <%= notice %>
-      </div>
+    <div class="alert alert-dismissable alert-success">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= notice %>
+    </div>
     <% end %>
 
     <% if alert.present? %>
-      <div class="alert alert-dismissable alert-warning">
-        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-        <%= alert %>
-      </div>
+    <div class="alert alert-dismissable alert-warning">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= alert %>
+    </div>
     <% end %>
 
     <%= yield %>
