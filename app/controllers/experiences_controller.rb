@@ -2,7 +2,7 @@ class ExperiencesController < ApplicationController
 
 
   def index
-    @experiences = current_user.experiences
+    @experiences = current_user.experiences.order("created_at DESC")
 
 
   end

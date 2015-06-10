@@ -7,7 +7,7 @@ class RestaurantsController < ApplicationController
   skip_before_action :authenticate_user!, :only => [:index, :show]
 
   def index
-    @restaurants = Restaurant.all
+    @restaurants = Restaurant.order("venue_name ASC")
     @experiences = Experience.all
 
   end

@@ -1,6 +1,6 @@
 ActiveAdmin.register Experience do
 
-  permit_params :best, :worst, :date
+  permit_params :best, :worst, :date, :restaurant_id
 
 
   # See permitted parameters documentation:
