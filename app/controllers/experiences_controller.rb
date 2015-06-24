@@ -59,7 +59,7 @@ class ExperiencesController < ApplicationController
 
 
     if @experience.save
-      redirect_to "/experiences", :notice => "Experience updated successfully."
+      redirect_to "/experiences/#{params[:id]}", :notice => "Experience updated successfully."
     else
       render 'edit'
     end
