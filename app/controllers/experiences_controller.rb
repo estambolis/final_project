@@ -5,6 +5,7 @@ class ExperiencesController < ApplicationController
     @experiences = current_user.experiences.order("created_at DESC")
 
 
+
   end
 
   def show
@@ -23,6 +24,7 @@ class ExperiencesController < ApplicationController
     @restaurants = Restaurant.all
 
   def create
+    # @targets = Target.where(user_id = current_user.id)
     @restaurants = Restaurant.all
     @experience = Experience.new
     @experience.comments = params[:comments]
@@ -39,6 +41,9 @@ class ExperiencesController < ApplicationController
     else
       render 'new'
     end
+
+
+
   end
 
   def edit

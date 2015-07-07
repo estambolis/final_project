@@ -94,13 +94,14 @@
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
-          <% @experiences = Experience.all %>
+          <% @experiences = Experience.all
+              @experience = Experience.all %>
           <% if current_user != nil %>
           <li><a href="/experiences" style="text-decoration:none;">Experiences  <span class="badge"><%= current_user.experiences.count %></span></a></li>
+          <li><a href="/targets" style="text-decoration:none;">Want to Visit <span class="badge"><%= current_user.targets.count %></span></a></li>
           <li><a href="/follows" style="text-decoration:none;">Following <span class="badge"><%= current_user.friends_where_sender.count %></span></a></li>
           <% else %>
-          <li><a href="/experiences" style="text-decoration:none;">Experiences</a></li>
-          <li><a href="/follows" style="text-decoration:none;">Following</a></li>
+
           <% end %>
 
 

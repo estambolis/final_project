@@ -1,0 +1,69 @@
+<!-- Validation failure messages -->
+
+<% if @target.errors.any? %>
+  <% @target.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<!-- Responsive panel example -->
+<br>
+<div class="row">
+  <div class="col-sm-offset-1 col-sm-10 col-md-offset-2 col-md-8">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+      <br>
+        <h3 class="panel-title">Add Target</h3>
+      </div>
+      <div class="panel-body">
+        <form action="/create_target" method="post" class="form-horizontal">
+          <!-- Hidden input for authenticity token to protect from forgery -->
+          <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+          <!-- Label and input for restaurant_id -->
+          <div class="form-group">
+            <label for="restaurant_id" class="col-sm-2 control-label">
+              Restaurant
+            </label>
+            <div class="col-sm-10">
+
+              <%if Restaurant.count == 0 %>
+            <h4>Please add a restaurant</h4>
+
+            <% else %>
+
+
+            <%= select_tag(:restaurant_id, options_from_collection_for_select(Restaurant.order("venue_name ASC"), :id, :venue_name, @restaurants.last.id), :class => "form-control") %>
+
+            <% end %>
+
+            </div>
+          </div>
+
+          <!-- Label and input for user_id -->
+          <div class="form-group">
+
+            <div class="col-sm-10">
+              <input type="hidden" name="user_id" value="<%= current_user.id %>">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+              <button class="btn btn-success">
+                Create Target
+              </button>
+              or
+              <a href="/targets">Cancel</a>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- End responsive panel example -->

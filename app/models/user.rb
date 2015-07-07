@@ -12,6 +12,8 @@ class User < ActiveRecord::Base
 
   has_many :restaurants, :through => :experiences
 
+  has_many :targets
+
 
   has_many :friend_requests_where_sender, :class_name => "Follow", :foreign_key => "sender_id"
   has_many :friends_where_sender, :through => :friend_requests_where_sender, :source => :receiver

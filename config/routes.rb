@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+  # Routes for the Target resource:
+  # CREATE
+  get "/targets/new", :controller => "targets", :action => "new"
+  post "/create_target", :controller => "targets", :action => "create"
+
+  # READ
+  get "/targets", :controller => "targets", :action => "index"
+  get "/targets/:id", :controller => "targets", :action => "show"
+
+  # UPDATE
+  get "/targets/:id/edit", :controller => "targets", :action => "edit"
+  post "/update_target/:id", :controller => "targets", :action => "update"
+
+  # DELETE
+  get "/delete_target/:id", :controller => "targets", :action => "destroy"
+  #------------------------------
+
   # Routes for the Follow resource:
   # CREATE
   get "/follows/new", :controller => "follows", :action => "new"

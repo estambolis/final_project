@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150609225248) do
+ActiveRecord::Schema.define(version: 20150707150136) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -76,6 +76,13 @@ ActiveRecord::Schema.define(version: 20150609225248) do
     t.string   "postcode"
     t.string   "type"
     t.string   "food_type"
+  end
+
+  create_table "targets", force: :cascade do |t|
+    t.integer  "restaurant_id"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "users", force: :cascade do |t|
